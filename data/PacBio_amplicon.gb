@@ -2,8 +2,8 @@ LOCUS       PacBio_amplicon       4185 bp DNA     linear   UNA 08-OCT-2024
 DEFINITION  PacBio amplicon of HCoV-229E spike protein.
 FEATURES             Location/Qualifiers
     termini5         1..43 
-    gene             44..3496
-    gene_flank3      3497..3553
+    gene             44..3499
+    gene_flank3      3500..3553
     barcode          3554..3569
     termini3         3570..4185
 ORIGIN
