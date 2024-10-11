@@ -1,5 +1,4 @@
 # Pseudovirus deep mutational scanning of HCoV-229E Spike protein 
-Study by Jenny Ahn and Jesse Bloom.
 
 ## Organization of this repo
 
