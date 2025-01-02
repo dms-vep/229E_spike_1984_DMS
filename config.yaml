@@ -78,8 +78,8 @@ neut_standard_barcodes: data/neutralization_standard_barcodes.csv
 # gene (codon) sequence (beginning with "http" or "ftp") or just path to file.
 # If these next two variables are "null" instead, then the variants are built
 # from scratch using parameters below.
-prebuilt_variants: null
-prebuilt_geneseq: null
+prebuilt_variants: results/variants/codon_variants.csv
+prebuilt_geneseq: results/gene_sequence/codon.fasta
 
 # Parameters for building variants from PacBio sequencing, only needed if
 # not using pre-built variants.
