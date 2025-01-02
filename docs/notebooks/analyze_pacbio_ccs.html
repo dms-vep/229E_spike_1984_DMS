@@ -7510,7 +7510,7 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=78da8651">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e05fd43c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7521,7 +7521,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c0976c6a">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b6eb77ae">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7536,25 +7536,23 @@ a.anchor-link {
 <span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="kn">import</span> <span class="nn">yaml</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2e6acf90">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=56606ec1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Get configuration information:</p>
+<p>The next cell is tagged as <code>parameters</code> for <code>papermill</code> parameterization:</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=44d4f290">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_parameters" id="cell-id=27521683">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7562,18 +7560,33 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># If you are running notebook interactively rather than in pipeline that handles</span>
-<span class="c1"># working directories, you may have to first `os.chdir` to appropriate directory.</span>
-
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"config.yaml"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pacbio_amplicon</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">pacbio_amplicon_specs</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">pacbio_runs_csv</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_injected-parameters" id="cell-id=4bc1a446">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Parameters</span>
+<span class="n">pacbio_amplicon</span> <span class="o">=</span> <span class="s2">"data/PacBio_amplicon.gb"</span>
+<span class="n">pacbio_amplicon_specs</span> <span class="o">=</span> <span class="s2">"data/PacBio_feature_parse_specs.yaml"</span>
+<span class="n">pacbio_runs_csv</span> <span class="o">=</span> <span class="s2">"data/PacBio_runs.csv"</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=65c9a2c2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=40f552d2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7583,16 +7596,16 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=370f89cc">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b14e4a7e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">pacbio_runs</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">"pacbio_runs"</span><span class="p">])</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">pacbio_runs_csv</span><span class="p">)</span>
     <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">subdir</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">"results/process_ccs/"</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="s2">"run"</span><span class="p">])</span>
     <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"run"</span><span class="p">:</span> <span class="s2">"pacbioRun"</span><span class="p">})</span>
 <span class="p">)</span>
@@ -7608,7 +7621,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -7676,7 +7689,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6fb849c5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=725936a2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7686,12 +7699,12 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3f761cd4">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=a7727723">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">readstats</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
@@ -7733,26 +7746,26 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style>
-  #altair-viz-14da954b626f4de691a2020ea88d2205.vega-embed {
+  #altair-viz-2795bd6254c84e88ade099b591069ac2.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-14da954b626f4de691a2020ea88d2205.vega-embed details,
-  #altair-viz-14da954b626f4de691a2020ea88d2205.vega-embed details summary {
+  #altair-viz-2795bd6254c84e88ade099b591069ac2.vega-embed details,
+  #altair-viz-2795bd6254c84e88ade099b591069ac2.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-14da954b626f4de691a2020ea88d2205"></div>
+<div id="altair-viz-2795bd6254c84e88ade099b591069ac2"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-14da954b626f4de691a2020ea88d2205") {
-      outputDiv = document.getElementById("altair-viz-14da954b626f4de691a2020ea88d2205");
+    if (outputDiv.id !== "altair-viz-2795bd6254c84e88ade099b591069ac2") {
+      outputDiv = document.getElementById("altair-viz-2795bd6254c84e88ade099b591069ac2");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -7805,7 +7818,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f330d5e3">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3a3725d5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7815,17 +7828,17 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=202eda94">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3cebe4f7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">targets</span> <span class="o">=</span> <span class="n">alignparse</span><span class="o">.</span><span class="n">targets</span><span class="o">.</span><span class="n">Targets</span><span class="p">(</span>
-    <span class="n">seqsfile</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">"pacbio_amplicon"</span><span class="p">],</span>
-    <span class="n">feature_parse_specs</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">"pacbio_amplicon_specs"</span><span class="p">],</span>
+    <span class="n">seqsfile</span><span class="o">=</span><span class="n">pacbio_amplicon</span><span class="p">,</span>
+    <span class="n">feature_parse_specs</span><span class="o">=</span><span class="n">pacbio_amplicon_specs</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">targets</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
@@ -7865,7 +7878,7 @@ Some fields may be wrong.
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3913be1e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a2b6fe3d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7875,12 +7888,12 @@ Some fields may be wrong.
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f0519154">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0cf0ac13">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># CSVs holding filtered reads</span>
@@ -7954,26 +7967,26 @@ Some fields may be wrong.
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style>
-  #altair-viz-2d8e71763eb34a268b80cfabfa505eea.vega-embed {
+  #altair-viz-27ed027916cb400d8af4814d2aa17dea.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-2d8e71763eb34a268b80cfabfa505eea.vega-embed details,
-  #altair-viz-2d8e71763eb34a268b80cfabfa505eea.vega-embed details summary {
+  #altair-viz-27ed027916cb400d8af4814d2aa17dea.vega-embed details,
+  #altair-viz-27ed027916cb400d8af4814d2aa17dea.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-2d8e71763eb34a268b80cfabfa505eea"></div>
+<div id="altair-viz-27ed027916cb400d8af4814d2aa17dea"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-2d8e71763eb34a268b80cfabfa505eea") {
-      outputDiv = document.getElementById("altair-viz-2d8e71763eb34a268b80cfabfa505eea");
+    if (outputDiv.id !== "altair-viz-27ed027916cb400d8af4814d2aa17dea") {
+      outputDiv = document.getElementById("altair-viz-27ed027916cb400d8af4814d2aa17dea");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -8026,7 +8039,7 @@ Some fields may be wrong.
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4c6cb1cc">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=abed58ab">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8036,12 +8049,12 @@ Some fields may be wrong.
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=dc59c0ac">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d0d91767">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># CSVs holding aligned reads</span>
@@ -8154,7 +8167,7 @@ Read 7.556e+06 alignable CCSs:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=05ae18d5">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3c6b4f33">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
