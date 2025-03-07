@@ -61,6 +61,46 @@ func_scores:
     pre_selection_sample: S2_lib_rep_B-241230-293T_high_hAPN_VSVG-1
     func_score_params: *func_scores_params_default
     global_epistasis_params: *global_epistasis_params
+    293t_high_hAPN_NTD-RBD-A-241230-func-1:
+    post_selection_sample: NTD-RBD_lib_rep_A-241230-293T_high_hAPN_no_antibody-1
+    pre_selection_sample: NTD-RBD_lib_rep_A-241230-293T_high_hAPN_VSVG-1
+    func_score_params: *func_scores_params_default
+    global_epistasis_params: *global_epistasis_params
+  293t_high_hAPN_NTD-RBD-A-241230-func-2:
+    post_selection_sample: NTD-RBD_lib_rep_A-241230-293T_high_hAPN_no_antibody-2
+    pre_selection_sample: NTD-RBD_lib_rep_A-241230-293T_high_hAPN_VSVG-2
+    func_score_params: *func_scores_params_default
+    global_epistasis_params: *global_epistasis_params
+  293t_high_hAPN_NTD-RBD-B-241230-func-1:
+    post_selection_sample: NTD-RBD_lib_rep_B-241230-293T_high_hAPN_no_antibody-1
+    pre_selection_sample: NTD-RBD_lib_rep_B-241230-293T_high_hAPN_VSVG-1
+    func_score_params: *func_scores_params_default
+    global_epistasis_params: *global_epistasis_params
+  293t_high_hAPN_NTD-RBD-B-241230-func-2:
+    post_selection_sample: NTD-RBD_lib_rep_B-241230-293T_high_hAPN_no_antibody-2
+    pre_selection_sample: NTD-RBD_lib_rep_B-241230-293T_high_hAPN_VSVG-2
+    func_score_params: *func_scores_params_default
+    global_epistasis_params: *global_epistasis_params
+  293t_high_hAPN_S2-A-241230-func-1:
+    post_selection_sample: S2_lib_rep_A-241230-293T_high_hAPN_no_antibody-1
+    pre_selection_sample: S2_lib_rep_A-241230-293T_high_hAPN_VSVG-1
+    func_score_params: *func_scores_params_default
+    global_epistasis_params: *global_epistasis_params
+  293t_high_hAPN_S2-A-241230-func-2:
+    post_selection_sample: S2_lib_rep_A-241230-293T_high_hAPN_no_antibody-2
+    pre_selection_sample: S2_lib_rep_A-241230-293T_high_hAPN_VSVG-2
+    func_score_params: *func_scores_params_default
+    global_epistasis_params: *global_epistasis_params
+  293t_high_hAPN_S2-B-241230-func-1:
+    post_selection_sample: S2_lib_rep_B-241230-293T_high_hAPN_no_antibody-1
+    pre_selection_sample: S2_lib_rep_B-241230-293T_high_hAPN_VSVG-1
+    func_score_params: *func_scores_params_default
+    global_epistasis_params: *global_epistasis_params
+  293t_high_hAPN_S2-B-241230-func-2:
+    post_selection_sample: S2_lib_rep_B-241230-293T_high_hAPN_no_antibody-2
+    pre_selection_sample: S2_lib_rep_B-241230-293T_high_hAPN_VSVG-2
+    func_score_params: *func_scores_params_default
+    global_epistasis_params: *global_epistasis_params
     
 # --------------------------------------------------------------------------------------
 # Configuration for averaging mutation functional effects across selections and plotting
