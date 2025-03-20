@@ -27,6 +27,15 @@
 #    - `stat_name`: name assigned to statistic, eg, "escape" or "receptor affinity".
 
 assays:
+  antibody_escape:
+    title: serum escape
+    selections: antibody_selections
+    averages: avg_antibody_escape
+    prob_escape_scale:
+      type: symlog
+      constant: 0.04
+    scale_stat: 1
+    stat_name: escape
   receptor_affinity:
     title: APN binding
     selections: receptor_selections
@@ -139,6 +148,44 @@ receptor_plot_hide_stats_default: &receptor_plot_hide_stats_default
       times_seen: 2
 
 # Define the receptor selections
+# define the antibody selections
+antibody_selections:
+  # ---------------------------------------------------------------------------------
+  # Pooled_hSera
+  FS_A-Pooled_hSera:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: FS_A-250318-pooled_hsera-0
+    antibody_samples:
+     FS_A-250318-pooled_hsera-IC99: #IC 99
+      concentration: 0.004425
+      use_in_fit: true
+     FS_A-250318-pooled_hsera-2IC99: #IC 2*99
+      concentration: 0.00885
+      use_in_fit: true
+     FS_A-250318-pooled_hsera-4IC99: #IC 4*99
+      concentration: 0.0177
+      use_in_fit: true
+  FS_A-Pooled_hSera_dup:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: FS_A-250318-pooled_hsera-0
+    antibody_samples:
+     FS_A-250318-pooled_hsera-IC99: #IC 99
+      concentration: 0.004425
+      use_in_fit: true
+     FS_A-250318-pooled_hsera-2IC99: #IC 2*99
+      concentration: 0.00885
+      use_in_fit: true
+     FS_A-250318-pooled_hsera-4IC99: #IC 4*99
+      concentration: 0.0177
+      use_in_fit: true
 receptor_selections:
   # ---------------------------------------------------------------------------------
   # soluble mouse Mxra8 selections
@@ -165,27 +212,27 @@ receptor_selections:
      FS_A-250228-APN-2IC99:
       concentration: 127.36
       use_in_fit: true
-  FS_A-human-APN_dup:
+  FS_B-human-APN:
     neut_standard_name: neut_standard
     prob_escape_filters: *prob_escape_filters_default
     polyclonal_params: *receptor_polyclonal_params_default
     escape_plot_kwargs: *escape_plot_kwargs_default
     plot_hide_stats: *receptor_plot_hide_stats_default
-    no_antibody_sample: FS_A-250228-APN-0
+    no_antibody_sample: FS_B-250318-APN-0
     antibody_samples:
-     FS_A-250228-APN-IC50:
+     FS_B-250318-APN-IC50:
       concentration: 5.77
       use_in_fit: true
-     FS_A-250228-APN-IC80:
+     FS_B-250318-APN-IC80:
       concentration: 14.3
       use_in_fit: true
-     FS_A-250228-APN-IC95:
+     FS_B-250318-APN-IC95:
       concentration: 35.75
       use_in_fit: true
-     FS_A-250228-APN-IC99:
+     FS_B-250318-APN-IC99:
       concentration: 63.68
       use_in_fit: true
-     FS_A-250228-APN-2IC99:
+     FS_B-250318-APN-2IC99:
       concentration: 127.36
       use_in_fit: true
 
@@ -226,11 +273,20 @@ avg_receptor_affinity_default: &avg_receptor_affinity_default
   <<: *avg_antibody_escape_default
   icXX: 50  # IC50
 
+# Define the antibodies/sera to average
+avg_antibody_escape:
+  Pooled_hSera:
+    <<: *avg_antibody_escape_default
+    title: Escape map for antibody rCHKV8
+    selections:
+      - FS_A-Pooled_hSera
+      - FS_A-Pooled_hSera_dup
+
 avg_receptor_affinity:
   Human_APN:
     <<: *avg_receptor_affinity_default
-    title: Effects of RBP mutations on binding to mouse Mxra8
+    title: Effects of RBP mutations on binding to human APN
     plot_hide_stats: *receptor_plot_hide_stats_default
     selections:
       - FS_A-human-APN
-      - FS_A-human-APN_dup
+      - FS_B-human-APN
