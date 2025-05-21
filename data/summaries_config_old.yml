@@ -1,0 +1,58 @@
+# Configuration for creating summary plots across assays.
+
+# --------------------------------------------------------------------------------------
+# Define how to create an integrated set of line plots and heat maps that summarizes
+# antibody escape alongside other assays (eg, functional effects of mutations).
+#
+# Provide a different key with the name of each set of summaries
+# --------------------------------------------------------------------------------------
+
+# You can use YAML anchor and merge keys to define values used for all summaries.
+# In order to enable this, any top-level key that ends with "_default" is **not**
+# used to generate a summary.
+summary_default: &summary_default
+  min_times_seen: 3  # only include mutations with times_seen >= this
+  min_frac_models: 1  # only include mutations in >= this fraction of models
+  alphabet: [A, C, D, E, F, G, H, I, K, L, M, N, P, Q, R, S, T, V, W, Y, -]  # amino acids to include
+
+summary_of_entry_and_binding:
+  <<: *summary_default
+  init_floor_escape_at_zero: true  # initially floor site escape to be >= 0?
+  init_site_escape_stat: mean  # initially show site escape as this statistic
+  antibody_escape: 
+    monoclonal antibodies:  # name each set of antibodies
+      stat: escape_median  # columin in CSV with value
+      # you can either specify a Vega color scheme 
+      # (https://vega.github.io/vega/docs/schemes/#redblue)
+      # as `color_scheme`, or specify `positive_color` and `negative_color`
+      # color_scheme: redblue
+      positive_color: "#56B4E9"  # light blue, positive heatmap color
+      negative_color: "#E69F00"  # orange, negative heatmap color
+      max_at_least: 1  # make heatmap max at least
+      min_at_least: -1  # make heatmap min at least this small
+      le_filters:  # only keep entries with indicated column is <= indicated value
+        escape_std: 2
+      antibody_list:  # antibody name followed by CSV with data for antibody
+        human_pooled_sera: /results/antibody_escape/averages/Pooled_hSera_mut_effect.csv
+      no_heatmap: False  # optional argument, do not show heatmap for this antibody set
+  other_phenotypes:
+    hAPN mediated entry:
+      csv: results/func_effects/averages/293T_high_hAPN_entry_func_effects.csv  # CSV with data
+      stat: effect  # column in CSV with value
+      color_scheme: redblue
+      fixed_max: 2  # specify either `max_at_least` or `fixed_max`
+      min_at_least: 0
+      init_min_value: -3  # initial min value in slider
+      le_filters:  # only keep entries with indicated column is <= indicated value
+        effect_std: 2
+    receptor affinity:  # name of particular assay condition
+      csv: results/receptor_affinity/averages/Human_APN_mut_effect.csv # CSV with data
+      stat: receptor affinity_median  # statisti used for mutation effects
+      positive_color: "#0072B2"  # dark blue
+      negative_color: "#D55E00"  # red
+      max_at_least: 1
+      fixed_min: -3  # specify either `min_at_least` or `fixed_min`
+      init_min_value: -10  # initial min value in slider
+      le_filters:  # only keep entries with indicated column is <= indicated value
+        receptor affinity_std: 2
+

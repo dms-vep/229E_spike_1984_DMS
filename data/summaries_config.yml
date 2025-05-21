@@ -1,0 +1,40 @@
+# Configuration for creating summary plots across assays.
+
+# --------------------------------------------------------------------------------------
+# Define how to create an integrated set of line plots and heat maps that summarizes
+# antibody escape alongside other assays (eg, functional effects of mutations).
+# --------------------------------------------------------------------------------------
+
+# define defaults shared across summaries
+summary_default: &summary_default
+  min_times_seen: 3  # only include mutations with times_seen >= this
+  min_frac_models: 1  # only include mutations in >= this fraction of models
+  alphabet: [A, C, D, E, F, G, H, I, K, L, M, N, P, Q, R, S, T, V, W, Y, -]  # amino acids to include
+  init_floor_escape_at_zero: true  # initially floor site escape to be >= 0?
+  init_site_escape_stat: sum  # initially show site escape as this statistic
+  antibody_escape: {}
+  other_phenotypes:
+    hAPN mediated entry:
+      csv: results/func_effects/averages/293T_high_hAPN_entry_func_effects.csv
+      stat: effect  # column to plot
+      positive_color: "#009E73"  # green
+      negative_color: "#F0E442"  # yellow
+      max_at_least: 1
+      min_at_least: 0
+      init_min_value: -2.0  # initial min value in slider
+      le_filters:
+        effect_std: 1.5
+    APN binding:  # name of particular assay condition
+      csv: results/receptor_affinity/averages/Human_APN_mut_effect.csv
+      stat: APN binding_median  # statisti used for mutation effects
+      positive_color: "#0072B2"  # dark blue
+      negative_color: "#D55E00"  # red
+      max_at_least: 1
+      min_at_least: 0
+      fixed_max: 2
+      fixed_min: -3
+      init_min_value: -2  # initial min value in slider
+      le_filters:
+        APN binding_std: 3.0
+  Adult_sera_mapping:
+

@@ -118,7 +118,7 @@ plot_hide_stats_default: &plot_hide_stats_default
   functional effect:
     csv: results/func_effects/averages/293T_high_hAPN_entry_func_effects.csv
     csv_col: effect
-    init: -5
+    init: -1.5
     min_filters:
       times_seen: 2
 
@@ -151,6 +151,49 @@ receptor_plot_hide_stats_default: &receptor_plot_hide_stats_default
 # define the antibody selections
 antibody_selections:
   # ---------------------------------------------------------------------------------
+  # 85_3-sera
+  FS_A-85_3-sera:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: FS_A-250520-85_3-0
+    antibody_samples:
+     FS_A-250520-85_3-IC99: #IC 99
+      concentration: 0.091541055
+      use_in_fit: true
+     FS_A-250520-85_3-2IC99: #IC 2*99
+      concentration: 0.223936839
+      use_in_fit: true
+     FS_A-250520-85_3-6IC99: #IC 6*99
+      concentration: 0.376788325
+      use_in_fit: true
+     FS_A-250520-85_3-8IC99: #IC 8*99
+      concentration: 0.446327444
+      use_in_fit: true
+
+  FS_A-85_3-sera_dup:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: FS_A-250520-85_3-0
+    antibody_samples:
+     FS_A-250520-85_3-IC99: #IC 99
+      concentration: 0.091541055
+      use_in_fit: true
+     FS_A-250520-85_3-2IC99: #IC 2*99
+      concentration: 0.223936839
+      use_in_fit: true
+     FS_A-250520-85_3-6IC99: #IC 6*99
+      concentration: 0.376788325
+      use_in_fit: true
+     FS_A-250520-85_3-8IC99: #IC 8*99
+      concentration: 0.446327444
+      use_in_fit: true
+ 
   # Pooled_hSera
   FS_A-Pooled_hSera:
     neut_standard_name: neut_standard
@@ -169,6 +212,7 @@ antibody_selections:
      FS_A-250318-pooled_hsera-4IC99: #IC 4*99
       concentration: 0.0177
       use_in_fit: true
+
   FS_A-Pooled_hSera_dup:
     neut_standard_name: neut_standard
     prob_escape_filters: *prob_escape_filters_default
@@ -188,7 +232,7 @@ antibody_selections:
       use_in_fit: true
 receptor_selections:
   # ---------------------------------------------------------------------------------
-  # soluble mouse Mxra8 selections
+  # soluble human apn selections
   FS_A-human-APN:
     neut_standard_name: neut_standard
     prob_escape_filters: *prob_escape_filters_default
@@ -277,11 +321,16 @@ avg_receptor_affinity_default: &avg_receptor_affinity_default
 avg_antibody_escape:
   Pooled_hSera:
     <<: *avg_antibody_escape_default
-    title: Escape map for antibody rCHKV8
+    title: Escape map for human pooled sera
     selections:
       - FS_A-Pooled_hSera
       - FS_A-Pooled_hSera_dup
-
+  85_3-sera:
+    <<: *avg_antibody_escape_default
+    title: Escape map for 85_3 sera
+    selections:
+      - FS_A-85_3-sera
+      - FS_A-85_3-sera_dup
 avg_receptor_affinity:
   Human_APN:
     <<: *avg_receptor_affinity_default
