@@ -12,7 +12,7 @@ summary_default: &summary_default
   alphabet: [A, C, D, E, F, G, H, I, K, L, M, N, P, Q, R, S, T, V, W, Y, -]  # amino acids to include
   init_floor_escape_at_zero: true  # initially floor site escape to be >= 0?
   init_site_escape_stat: sum  # initially show site escape as this statistic
-  antibody_escape: {}
+  antibody_escape: {} # show effects on antibody escape, empty dict if no antibodies being shown
   other_phenotypes:
     hAPN mediated entry:
       csv: results/func_effects/averages/293T_high_hAPN_entry_func_effects.csv
@@ -36,5 +36,4 @@ summary_default: &summary_default
       init_min_value: -2  # initial min value in slider
       le_filters:
         APN binding_std: 3.0
-  Adult_sera_mapping:
-
+  
