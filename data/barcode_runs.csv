@@ -37,3 +37,5 @@ FS_A-250520-85_3-2IC99,FS_A,20250520,/shared/ngs/illumina/sharari/250520_VH00319
 FS_A-250520-85_3-6IC99,FS_A,20250520,/shared/ngs/illumina/sharari/250520_VH00319_565_222CTF7NX/Unaligned/Project_sharari/FS-A_85_3_6IC99_S11_R1_001.fastq.gz,
 FS_A-250520-85_3-8IC99,FS_A,20250520,/shared/ngs/illumina/sharari/250520_VH00319_565_222CTF7NX/Unaligned/Project_sharari/FS-A_85_3_8IC99_S12_R1_001.fastq.gz,
 FS_A-250520-VSVG_control,FS_A,20250520,/shared/ngs/illumina/sharari/250520_VH00319_565_222CTF7NX/Unaligned/Project_sharari/FS-A_VSVG_control_S13_R1_001.fastq.gz,
+FS_B-250610-VSVG_A,FS_B,20250610,/shared/ngs/illumina/sharari/250610_M08474_0130_000000000-M2KYP/Unaligned/Project_sharari/FS-libB_VSVG_293T_A_S1_R1_001.fastq.gz,
+FS_B-250610-VSVG_B,FS_B,20250610,/shared/ngs/illumina/sharari/250610_M08474_0130_000000000-M2KYP/Unaligned/Project_sharari/FS-libB_VSVG_293T_B_S2_R1_001.fastq.gz,
