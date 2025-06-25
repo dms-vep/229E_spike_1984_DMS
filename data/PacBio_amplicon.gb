@@ -3,7 +3,9 @@ DEFINITION  PacBio Amplicon of HCoV 229E Spike protein
 FEATURES             Location/Qualifiers
      termini5        1..47
      variant_tag5    28..28
-     gene            48..3503
+     gene_upstream   48..101
+     gene            102..3458
+     gene_downstream 3459..3503
      gene_flank3     3504..3557
      barcode         3558..3573
      termini3        3574..3645

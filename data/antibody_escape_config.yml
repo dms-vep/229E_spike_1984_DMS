@@ -37,13 +37,16 @@ assays:
     scale_stat: 1
     stat_name: escape
   receptor_affinity:
-    title: APN binding
+    title: APN affinity
     selections: receptor_selections
     averages: avg_receptor_affinity
     prob_escape_scale:
       type: linear
+    concentration_scale:
+      type: linear
+    concentration_title: concentration of receptor
     scale_stat: -1
-    stat_name: APN binding
+    stat_name: binding
 
 # --------------------------------------------------------------------------------------
 # Configuration for each antibody or soluble receptor selection experiment.
@@ -78,7 +81,7 @@ prob_escape_filters_default: &prob_escape_filters_default
   # of total counts in the antibody sample.
   min_no_antibody_count: 20  # make bigger for real experiments, say 20
   min_no_antibody_frac: 0.000001 # make smaller for large libraries, say ~0.1 / (library size)
-  min_antibody_count: 300  # make bigger for real experiments, say 100
+  min_antibody_count: 100  # make bigger for real experiments, say 100
   min_antibody_frac: 0.0001  # make smaller for large libraries, say ~10 / (library size)
   # For averaging and plotting the mean probability (fraction) escape across variants, use
   # these cutoffs:
@@ -91,7 +94,7 @@ polyclonal_params_default: &polyclonal_params_default
   spatial_distances: null  # CSV with residue distances for spatial regularization, or null
   fit_kwargs:  # keyword arguments to `Polyclonal.fit`
     reg_escape_weight: 0.1
-    reg_spread_weight: 0.1
+    reg_spread_weight: 0.25
     reg_activity_weight: 1.0
     logfreq: 200
 
@@ -104,7 +107,7 @@ escape_plot_kwargs_default: &escape_plot_kwargs_default
     - sequential_site
   heatmap_max_at_least: 2
   heatmap_min_at_least: -2
-  init_floor_at_zero: true
+  init_floor_at_zero: false
   init_site_statistic: sum
   site_zoom_bar_color_col: region  # supplied in `site_numbering_map`
   heatmap_color_scheme: redblue
@@ -116,9 +119,9 @@ escape_plot_kwargs_default: &escape_plot_kwargs_default
 #   - `init`: initial value of slider
 plot_hide_stats_default: &plot_hide_stats_default
   functional effect:
-    csv: results/func_effects/averages/293T_high_hAPN_entry_func_effects.csv
+    csv: results/func_effects/averages/cell_entry_func_effects.csv
     csv_col: effect
-    init: -1.5
+    init: -2.5
     min_filters:
       times_seen: 2
 
@@ -141,9 +144,9 @@ receptor_polyclonal_params_default: &receptor_polyclonal_params_default
 # default stats to hide cells on plot of receptor affinity
 receptor_plot_hide_stats_default: &receptor_plot_hide_stats_default
   functional effect:
-    csv: results/func_effects/averages/293T_high_hAPN_entry_func_effects.csv
+    csv: results/func_effects/averages/cell_entry_func_effects.csv
     csv_col: effect
-    init: -1.5
+    init: -2.5
     min_filters:
       times_seen: 2
 
@@ -153,27 +156,6 @@ antibody_selections:
   # ---------------------------------------------------------------------------------
   # 85_3-sera
   FS_A-85_3-sera:
-    neut_standard_name: neut_standard
-    prob_escape_filters: *prob_escape_filters_default
-    polyclonal_params: *polyclonal_params_default
-    escape_plot_kwargs: *escape_plot_kwargs_default
-    plot_hide_stats: *plot_hide_stats_default
-    no_antibody_sample: FS_A-250520-85_3-0
-    antibody_samples:
-     FS_A-250520-85_3-IC99: #IC 99
-      concentration: 0.091541055
-      use_in_fit: true
-     FS_A-250520-85_3-2IC99: #IC 2*99
-      concentration: 0.223936839
-      use_in_fit: true
-     FS_A-250520-85_3-6IC99: #IC 6*99
-      concentration: 0.376788325
-      use_in_fit: true
-     FS_A-250520-85_3-8IC99: #IC 8*99
-      concentration: 0.446327444
-      use_in_fit: true
-
-  FS_A-85_3-sera_dup:
     neut_standard_name: neut_standard
     prob_escape_filters: *prob_escape_filters_default
     polyclonal_params: *polyclonal_params_default
@@ -213,23 +195,6 @@ antibody_selections:
       concentration: 0.0177
       use_in_fit: true
 
-  FS_A-Pooled_hSera_dup:
-    neut_standard_name: neut_standard
-    prob_escape_filters: *prob_escape_filters_default
-    polyclonal_params: *polyclonal_params_default
-    escape_plot_kwargs: *escape_plot_kwargs_default
-    plot_hide_stats: *plot_hide_stats_default
-    no_antibody_sample: FS_A-250318-pooled_hsera-0
-    antibody_samples:
-     FS_A-250318-pooled_hsera-IC99: #IC 99
-      concentration: 0.004425
-      use_in_fit: true
-     FS_A-250318-pooled_hsera-2IC99: #IC 2*99
-      concentration: 0.00885
-      use_in_fit: true
-     FS_A-250318-pooled_hsera-4IC99: #IC 4*99
-      concentration: 0.0177
-      use_in_fit: true
 receptor_selections:
   # ---------------------------------------------------------------------------------
   # soluble human apn selections
@@ -296,7 +261,7 @@ avg_escape_plot_kwargs_default: &avg_escape_plot_kwargs_default
   <<: *escape_plot_kwargs_default
   addtl_slider_stats:
     times_seen: 2
-    escape_std: 6
+    escape_std: 3.5
   addtl_slider_stats_as_max: [escape_std]
   avg_type: median
   per_model_tooltip: true
@@ -324,15 +289,13 @@ avg_antibody_escape:
     title: Escape map for human pooled sera
     selections:
       - FS_A-Pooled_hSera
-      - FS_A-Pooled_hSera_dup
   85_3-sera:
     <<: *avg_antibody_escape_default
     title: Escape map for 85_3 sera
     selections:
       - FS_A-85_3-sera
-      - FS_A-85_3-sera_dup
 avg_receptor_affinity:
-  Human_APN:
+  human_APN_binding:
     <<: *avg_receptor_affinity_default
     title: Effects of RBP mutations on binding to human APN
     plot_hide_stats: *receptor_plot_hide_stats_default

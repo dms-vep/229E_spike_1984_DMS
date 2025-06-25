@@ -20,3 +20,6 @@ results/variants/*
 results/barcode_counts/*
 !results/barcode_counts/*_counts.csv
 
+!results/structure_analysis_plots/chimerax/
+!results/structure_analysis_plots/chimerax/*
+results/structure_analysis_plots/**/.*
