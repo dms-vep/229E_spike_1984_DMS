@@ -34,6 +34,7 @@ summary_default: &summary_default
         escape_std: 2
       antibody_list:  # antibody name followed by CSV with data for antibody
         SD85_3: results/antibody_escape/averages/85_3-sera_mut_effect.csv
+        SD85_7: results/antibody_escape/averages/85_7-sera_mut_effect.csv
       no_heatmap: False  # optional argument, do not show heatmap for this antibody set
   other_phenotypes:  # list other phenotypes to plot, empty dict if no other phenotypes
     APN mediated entry:
@@ -46,7 +47,7 @@ summary_default: &summary_default
       positive_color: '#461B7E'  # durk purple, positive heatmap color
       negative_color: '#FA2A55'  # red-pink , negative color
       fixed_max: 2  # specify either `max_at_least` or `fixed_max`
-      min_at_least: 0
+      min_at_least: -1
       init_min_value: -2.5 # initial min value in slider, set to null to make minimum value of data
       le_filters:  # only keep entries with indicated column is <= indicated value
         effect_std: 2.5
@@ -57,7 +58,8 @@ summary_default: &summary_default
       positive_color: "#0072B2"  # dark blue
       negative_color: "#D55E00"  # red
       max_at_least: 1
-      init_min_value: null  # initial min value in slider
+      min_at_least: 0
+      init_min_value: -20  # initial min value in slider
       le_filters:  # only keep entries with indicated column is <= indicated value
         binding_std: 3.5
  
