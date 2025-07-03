@@ -1,0 +1,121 @@
+# Configuration for `configure-dms-viz`, keyed by names given to output JSONs
+# See https://dms-viz.github.io/dms-viz-docs/preparing-data/command-line-api/
+# for more on `configure-dms-viz`.
+
+#---------------------------------------------------------------------------------------
+# Structurs 6U7E 6U7h 8WDE
+#---------------------------------------------------------------------------------------
+# 6U7H
+
+cell_entry_on_s_6U7H:
+  pdb_id: 6U7H
+  name: spike 229E mutation effects on cell entry 
+  pdb_type: biological_assembly
+  data_csv: results/summaries/summary_default.csv
+  sitemap_csv: data/dms-viz-sitemap.csv
+  melt_condition_metric_cols: null
+  metric: APN mediated entry # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
+  opt_params: &cell_entry_opt_params
+    <<: *cell_entry_opt_params
+    included-chains: A B C
+
+receptor_binding_on_s_6U7H:
+  pdb_id: 6U7H
+  name: spike 229E mutation effects hAPN receptor binding affinity 
+  pdb_type: biological_assembly
+  data_csv: results/summaries/summary_default.csv
+  sitemap_csv: data/dms-viz-sitemap.csv
+  melt_condition_metric_cols: null
+  metric: receptor affinity  # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
+  opt_params: &cell_entry_opt_params
+    <<: *cell_entry_opt_params
+    included-chains: A B C 
+
+antibody_escape_on_s_6U7H:
+  pdb_id: 6U7H
+  name: spike 229E mutation effects on sera escape
+  pdb_type: biological_assembly
+  data_csv: results/summaries/summary_default.csv
+  sitemap_csv: data/dms-viz-sitemap.csv
+  melt_condition_metric_cols: null
+  metric: monoclonal antibodies escape
+  opt_params: &escape_opt_params
+    <<: *escape_opt_params
+    included-chains: A B C
+#---------------------------------------------------------------------------------------
+# 8WDE
+
+cell_entry_on_s_8WDE:
+  pdb_id: 8WDE
+  name: spike 229E mutation effects on cell entry 
+  pdb_type: biological_assembly
+  data_csv: results/summaries/summary_default.csv
+  sitemap_csv: data/dms-viz-sitemap.csv
+  melt_condition_metric_cols: null
+  metric: APN mediated entry # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
+  opt_params: &cell_entry_opt_params
+    <<: *cell_entry_opt_params
+    included-chains: A B C
+
+receptor_binding_on_s_8WDE:
+  pdb_id: 8WDE
+  name: spike 229E mutation effects hAPN receptor binding affinity 
+  pdb_type: biological_assembly
+  data_csv: results/summaries/summary_default.csv
+  sitemap_csv: data/dms-viz-sitemap.csv
+  melt_condition_metric_cols: null
+  metric: receptor affinity  # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
+  opt_params: &cell_entry_opt_params
+    <<: *cell_entry_opt_params
+    included-chains: A B C 
+
+antibody_escape_on_s_8WDE:
+  pdb_id: 8WDE
+  name: spike 229E mutation effects on sera escape
+  pdb_type: biological_assembly
+  data_csv: results/summaries/summary_default.csv
+  sitemap_csv: data/dms-viz-sitemap.csv
+  melt_condition_metric_cols: null
+  metric: monoclonal antibodies escape
+  opt_params: &escape_opt_params
+    <<: *escape_opt_params
+    included-chains: A B C
+
+#---------------------------------------------------------------------------------------
+# 7CYC
+
+cell_entry_on_s_7CYC:
+  pdb_id: 7CYC
+  name: spike 229E mutation effects on cell entry 
+  pdb_type: biological_assembly
+  data_csv: results/summaries/summary_default.csv
+  sitemap_csv: data/dms-viz-sitemap.csv
+  melt_condition_metric_cols: null
+  metric: APN mediated entry # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
+  opt_params: &cell_entry_opt_params
+    <<: *cell_entry_opt_params
+    included-chains: A B C
+
+receptor_binding_on_s_7CYC:
+  pdb_id: 7CYC
+  name: spike 229E mutation effects hAPN receptor binding affinity 
+  pdb_type: biological_assembly
+  data_csv: results/summaries/summary_default.csv
+  sitemap_csv: data/dms-viz-sitemap.csv
+  melt_condition_metric_cols: null
+  metric: receptor affinity  # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
+  opt_params: &cell_entry_opt_params
+    <<: *cell_entry_opt_params
+    included-chains: A B C 
+
+antibody_escape_on_s_7CYC:
+  pdb_id: 7CYC
+  name: spike 229E mutation effects on sera escape
+  pdb_type: biological_assembly
+  data_csv: results/summaries/summary_default.csv
+  sitemap_csv: data/dms-viz-sitemap.csv
+  melt_condition_metric_cols: null
+  metric: monoclonal antibodies escape
+  opt_params: &escape_opt_params
+    <<: *escape_opt_params
+    included-chains: A B C

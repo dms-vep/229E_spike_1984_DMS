@@ -41,3 +41,6 @@ The format is explained within the file.
 
 ## Configuration for summary plots across assays
 [summary_config.yml](summary_config.yml) has the configuration for creating summaries across multiple assays.
+
+## Configuration for post analysis dms-viz visualization
+[dms_viz_config.yml](dms_viz_config.yml) has the configuration for the visualization of DMS on spike protein structure. The file [dms-viz-sitemap.csv](dms-viz-sitemap.csv) is used to set the protein sites of the DMS strain compared to spike-229E structures. The PDB structures used for this study are 6H7U, 7CYC and 8WDE. 

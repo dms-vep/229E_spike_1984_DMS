@@ -165,7 +165,7 @@ antibody_selections:
     antibody_samples:
      FS_B-250623-85_7-IC99: #IC 99
       concentration: 0.091205212
-      use_in_fit: true
+      use_in_fit: false
      FS_B-250623-85_7-2IC99: #IC 2*99
       concentration: 0.243902439
       use_in_fit: true
@@ -187,7 +187,7 @@ antibody_selections:
     antibody_samples:
      FS_B-250623-85_3-IC99: #IC 99
       concentration: 0.091541055
-      use_in_fit: true
+      use_in_fit: false
      FS_B-250623-85_3-2IC99: #IC 2*99
       concentration: 0.223936839
       use_in_fit: true
@@ -208,7 +208,7 @@ antibody_selections:
     antibody_samples:
      FS_A-250520-85_3-IC99: #IC 99
       concentration: 0.09055933
-      use_in_fit: true
+      use_in_fit: false
      FS_A-250520-85_3-2IC99: #IC 2*99
       concentration: 0.245590498
       use_in_fit: true
@@ -304,7 +304,7 @@ avg_escape_plot_kwargs_default: &avg_escape_plot_kwargs_default
   <<: *escape_plot_kwargs_default
   addtl_slider_stats:
     times_seen: 2
-    escape_std: 3.5
+    escape_std: 2.5
   addtl_slider_stats_as_max: [escape_std]
   avg_type: median
   per_model_tooltip: true
@@ -340,13 +340,13 @@ avg_antibody_escape:
       - FS_B-85_3-sera
   85_7-sera:
     <<: *avg_antibody_escape_default
-    title: Escape map for 85_3 sera
+    title: Escape map for 85_7 sera
     selections:
       - FS_B-85_7-sera
 avg_receptor_affinity:
   human_APN_binding:
     <<: *avg_receptor_affinity_default
-    title: Effects of RBP mutations on binding to human APN
+    title: Effects of spike mutations on binding to human APN
     plot_hide_stats: *receptor_plot_hide_stats_default
     selections:
       - FS_A-human-APN

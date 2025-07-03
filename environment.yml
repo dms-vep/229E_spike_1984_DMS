@@ -1,8 +1,8 @@
 name: dms-vep-pipeline-3
 
 channels:
- - https://conda-forge.fredhutch.org/conda-forge
- - https://conda-forge.fredhutch.org/bioconda
+  - https://conda-forge.fredhutch.org/conda-forge
+  - https://conda-forge.fredhutch.org/bioconda
 
 dependencies:
   - altair=5.5

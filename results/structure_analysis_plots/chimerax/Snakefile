@@ -1,0 +1,61 @@
+import os
+
+configfile: "config.yaml"
+
+STRUCTURES = config["structures"]
+EFFECT_TYPES = {
+    "entry": ("effect_std", "effect"),
+    "binding": ("binding_std", "binding_mean"),
+    "escape": ("escape_std", "escape_mean")
+}
+INPUT_FILES = config["input_files"]
+SITE_MAP = config["site_map"]
+
+
+rule all:
+    input:
+        expand(f"results/{{structure}}/{{name}}_filtered_chimerax_{{structure}}.defattr",
+               structure=STRUCTURES, name=["entry", "binding", "escape"])
+
+rule chimerax_filter:
+    input:
+        data="chimerax_pipeline.py",
+        func_file=lambda wildcards: INPUT_FILES[wildcards.name],
+        site_map=SITE_MAP
+    output:
+        filtered_file=f"chimerax_files/{{name}}_filtered_{{structure}}.csv",
+        mean_file=f"chimerax_files/{{name}}_filtered_chimerax_{{structure}}.csv"
+    params:
+        std_col=lambda wildcards: EFFECT_TYPES[wildcards.name][0],
+        effect_col=lambda wildcards: EFFECT_TYPES[wildcards.name][1],
+        structure="{structure}",
+        name="{name}"
+    shell:
+        """
+        python {input.data} \
+            --func_file {input.func_file} \
+            --site_map {input.site_map} \
+            --structure {params.structure} \
+            --std_col {params.std_col} \
+            --effect_col {params.effect_col}
+        """
+
+rule make_defattr:
+    input:
+        infile=f"chimerax_files/{{name}}_filtered_chimerax_{{structure}}.csv"
+    output:
+        defattr=f"results/{{structure}}/{{name}}_filtered_chimerax_{{structure}}.defattr"
+    params:
+        name=lambda wildcards: wildcards.name,
+        structure=lambda wildcards: wildcards.structure,
+        effect_col=lambda wildcards: EFFECT_TYPES[wildcards.name][1],
+        outdir=lambda wildcards: f"results/{wildcards.structure}"
+    shell:
+        """
+        python chimerax_pipeline.py \
+            --aggregate \
+            --infile {input.infile} \
+            --name {params.name} \
+            --effect_col_agg {params.effect_col} \
+            --outdir {params.outdir}
+        """

@@ -1,0 +1,272 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                count
+---------------  -------
+all                    1
+chimerax_filter        9
+make_defattr           9
+total                 19
+
+Select jobs to execute...
+
+[Fri Jun 20 14:18:46 2025]
+rule chimerax_filter:
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/receptor_affinity/averages/human_APN_binding_mut_effect.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/binding_filtered_6U7H.csv, chimerax_files/binding_filtered_chimerax_6U7H.csv
+    jobid: 10
+    reason: Updated input files: chimerax_pipeline.py
+    wildcards: structure=6U7H, name=binding
+    resources: tmpdir=/tmp
+
+
+[Fri Jun 20 14:18:46 2025]
+rule chimerax_filter:
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/85_3-sera_mut_effect.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/escape_filtered_6U7E.csv, chimerax_files/escape_filtered_chimerax_6U7E.csv
+    jobid: 6
+    reason: Updated input files: chimerax_pipeline.py
+    wildcards: structure=6U7E, name=escape
+    resources: tmpdir=/tmp
+
+
+[Fri Jun 20 14:18:46 2025]
+rule chimerax_filter:
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/func_effects/averages/cell_entry_func_effects.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/entry_filtered_8WDE.csv, chimerax_files/entry_filtered_chimerax_8WDE.csv
+    jobid: 14
+    reason: Missing output files: chimerax_files/entry_filtered_chimerax_8WDE.csv
+    wildcards: structure=8WDE, name=entry
+    resources: tmpdir=/tmp
+
+
+[Fri Jun 20 14:18:46 2025]
+rule chimerax_filter:
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/receptor_affinity/averages/human_APN_binding_mut_effect.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/binding_filtered_6U7E.csv, chimerax_files/binding_filtered_chimerax_6U7E.csv
+    jobid: 4
+    reason: Updated input files: chimerax_pipeline.py
+    wildcards: structure=6U7E, name=binding
+    resources: tmpdir=/tmp
+
+[Fri Jun 20 14:18:49 2025]
+Finished job 14.
+1 of 19 steps (5%) done
+Select jobs to execute...
+
+[Fri Jun 20 14:18:49 2025]
+rule chimerax_filter:
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/func_effects/averages/cell_entry_func_effects.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/entry_filtered_6U7E.csv, chimerax_files/entry_filtered_chimerax_6U7E.csv
+    jobid: 2
+    reason: Missing output files: chimerax_files/entry_filtered_chimerax_6U7E.csv
+    wildcards: structure=6U7E, name=entry
+    resources: tmpdir=/tmp
+
+[Fri Jun 20 14:18:49 2025]
+Finished job 6.
+2 of 19 steps (11%) done
+[Fri Jun 20 14:18:49 2025]
+Finished job 4.
+3 of 19 steps (16%) done
+[Fri Jun 20 14:18:49 2025]
+Finished job 10.
+4 of 19 steps (21%) done
+Select jobs to execute...
+
+[Fri Jun 20 14:18:49 2025]
+rule make_defattr:
+    input: chimerax_files/binding_filtered_chimerax_6U7H.csv
+    output: results/6U7H/binding_filtered_chimerax_6U7H.defattr
+    jobid: 9
+    reason: Missing output files: results/6U7H/binding_filtered_chimerax_6U7H.defattr; Input files updated by another job: chimerax_files/binding_filtered_chimerax_6U7H.csv
+    wildcards: structure=6U7H, name=binding
+    resources: tmpdir=/tmp
+
+
+[Fri Jun 20 14:18:49 2025]
+rule make_defattr:
+    input: chimerax_files/escape_filtered_chimerax_6U7E.csv
+    output: results/6U7E/escape_filtered_chimerax_6U7E.defattr
+    jobid: 5
+    reason: Missing output files: results/6U7E/escape_filtered_chimerax_6U7E.defattr; Input files updated by another job: chimerax_files/escape_filtered_chimerax_6U7E.csv
+    wildcards: structure=6U7E, name=escape
+    resources: tmpdir=/tmp
+
+
+[Fri Jun 20 14:18:49 2025]
+rule make_defattr:
+    input: chimerax_files/entry_filtered_chimerax_8WDE.csv
+    output: results/8WDE/entry_filtered_chimerax_8WDE.defattr
+    jobid: 13
+    reason: Missing output files: results/8WDE/entry_filtered_chimerax_8WDE.defattr; Input files updated by another job: chimerax_files/entry_filtered_chimerax_8WDE.csv
+    wildcards: structure=8WDE, name=entry
+    resources: tmpdir=/tmp
+
+Select jobs to execute...
+[Fri Jun 20 14:18:50 2025]
+Finished job 2.
+5 of 19 steps (26%) done
+
+[Fri Jun 20 14:18:50 2025]
+rule make_defattr:
+    input: chimerax_files/entry_filtered_chimerax_6U7E.csv
+    output: results/6U7E/entry_filtered_chimerax_6U7E.defattr
+    jobid: 1
+    reason: Missing output files: results/6U7E/entry_filtered_chimerax_6U7E.defattr; Input files updated by another job: chimerax_files/entry_filtered_chimerax_6U7E.csv
+    wildcards: structure=6U7E, name=entry
+    resources: tmpdir=/tmp
+
+[Fri Jun 20 14:18:50 2025]
+Finished job 5.
+6 of 19 steps (32%) done
+Select jobs to execute...
+
+[Fri Jun 20 14:18:51 2025]
+rule chimerax_filter:
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/85_3-sera_mut_effect.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/escape_filtered_6U7H.csv, chimerax_files/escape_filtered_chimerax_6U7H.csv
+    jobid: 12
+    reason: Updated input files: chimerax_pipeline.py
+    wildcards: structure=6U7H, name=escape
+    resources: tmpdir=/tmp
+
+[Fri Jun 20 14:18:51 2025]
+Finished job 9.
+7 of 19 steps (37%) done
+Select jobs to execute...
+
+[Fri Jun 20 14:18:51 2025]
+rule chimerax_filter:
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/receptor_affinity/averages/human_APN_binding_mut_effect.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/binding_filtered_8WDE.csv, chimerax_files/binding_filtered_chimerax_8WDE.csv
+    jobid: 16
+    reason: Missing output files: chimerax_files/binding_filtered_chimerax_8WDE.csv
+    wildcards: structure=8WDE, name=binding
+    resources: tmpdir=/tmp
+
+[Fri Jun 20 14:18:51 2025]
+Finished job 13.
+8 of 19 steps (42%) done
+Select jobs to execute...
+
+[Fri Jun 20 14:18:51 2025]
+rule make_defattr:
+    input: chimerax_files/binding_filtered_chimerax_6U7E.csv
+    output: results/6U7E/binding_filtered_chimerax_6U7E.defattr
+    jobid: 3
+    reason: Missing output files: results/6U7E/binding_filtered_chimerax_6U7E.defattr; Input files updated by another job: chimerax_files/binding_filtered_chimerax_6U7E.csv
+    wildcards: structure=6U7E, name=binding
+    resources: tmpdir=/tmp
+
+[Fri Jun 20 14:18:52 2025]
+Finished job 1.
+9 of 19 steps (47%) done
+Select jobs to execute...
+
+[Fri Jun 20 14:18:52 2025]
+rule chimerax_filter:
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/func_effects/averages/cell_entry_func_effects.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/entry_filtered_6U7H.csv, chimerax_files/entry_filtered_chimerax_6U7H.csv
+    jobid: 8
+    reason: Missing output files: chimerax_files/entry_filtered_chimerax_6U7H.csv
+    wildcards: structure=6U7H, name=entry
+    resources: tmpdir=/tmp
+
+[Fri Jun 20 14:18:52 2025]
+Finished job 3.
+10 of 19 steps (53%) done
+Select jobs to execute...
+
+[Fri Jun 20 14:18:52 2025]
+rule chimerax_filter:
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/85_3-sera_mut_effect.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/escape_filtered_8WDE.csv, chimerax_files/escape_filtered_chimerax_8WDE.csv
+    jobid: 18
+    reason: Updated input files: chimerax_pipeline.py
+    wildcards: structure=8WDE, name=escape
+    resources: tmpdir=/tmp
+
+[Fri Jun 20 14:18:52 2025]
+Finished job 12.
+11 of 19 steps (58%) done
+Select jobs to execute...
+
+[Fri Jun 20 14:18:52 2025]
+rule make_defattr:
+    input: chimerax_files/escape_filtered_chimerax_6U7H.csv
+    output: results/6U7H/escape_filtered_chimerax_6U7H.defattr
+    jobid: 11
+    reason: Missing output files: results/6U7H/escape_filtered_chimerax_6U7H.defattr; Input files updated by another job: chimerax_files/escape_filtered_chimerax_6U7H.csv
+    wildcards: structure=6U7H, name=escape
+    resources: tmpdir=/tmp
+
+[Fri Jun 20 14:18:52 2025]
+Finished job 16.
+12 of 19 steps (63%) done
+Select jobs to execute...
+
+[Fri Jun 20 14:18:52 2025]
+rule make_defattr:
+    input: chimerax_files/binding_filtered_chimerax_8WDE.csv
+    output: results/8WDE/binding_filtered_chimerax_8WDE.defattr
+    jobid: 15
+    reason: Missing output files: results/8WDE/binding_filtered_chimerax_8WDE.defattr; Input files updated by another job: chimerax_files/binding_filtered_chimerax_8WDE.csv
+    wildcards: structure=8WDE, name=binding
+    resources: tmpdir=/tmp
+
+[Fri Jun 20 14:18:53 2025]
+Finished job 8.
+13 of 19 steps (68%) done
+Select jobs to execute...
+
+[Fri Jun 20 14:18:53 2025]
+rule make_defattr:
+    input: chimerax_files/entry_filtered_chimerax_6U7H.csv
+    output: results/6U7H/entry_filtered_chimerax_6U7H.defattr
+    jobid: 7
+    reason: Missing output files: results/6U7H/entry_filtered_chimerax_6U7H.defattr; Input files updated by another job: chimerax_files/entry_filtered_chimerax_6U7H.csv
+    wildcards: structure=6U7H, name=entry
+    resources: tmpdir=/tmp
+
+[Fri Jun 20 14:18:53 2025]
+Finished job 18.
+14 of 19 steps (74%) done
+[Fri Jun 20 14:18:53 2025]
+Finished job 15.
+15 of 19 steps (79%) done
+[Fri Jun 20 14:18:53 2025]
+Finished job 11.
+16 of 19 steps (84%) done
+Select jobs to execute...
+
+[Fri Jun 20 14:18:53 2025]
+rule make_defattr:
+    input: chimerax_files/escape_filtered_chimerax_8WDE.csv
+    output: results/8WDE/escape_filtered_chimerax_8WDE.defattr
+    jobid: 17
+    reason: Missing output files: results/8WDE/escape_filtered_chimerax_8WDE.defattr; Input files updated by another job: chimerax_files/escape_filtered_chimerax_8WDE.csv
+    wildcards: structure=8WDE, name=escape
+    resources: tmpdir=/tmp
+
+[Fri Jun 20 14:18:55 2025]
+Finished job 17.
+17 of 19 steps (89%) done
+[Fri Jun 20 14:18:55 2025]
+Finished job 7.
+18 of 19 steps (95%) done
+Select jobs to execute...
+
+[Fri Jun 20 14:18:55 2025]
+localrule all:
+    input: results/6U7E/entry_filtered_chimerax_6U7E.defattr, results/6U7E/binding_filtered_chimerax_6U7E.defattr, results/6U7E/escape_filtered_chimerax_6U7E.defattr, results/6U7H/entry_filtered_chimerax_6U7H.defattr, results/6U7H/binding_filtered_chimerax_6U7H.defattr, results/6U7H/escape_filtered_chimerax_6U7H.defattr, results/8WDE/entry_filtered_chimerax_8WDE.defattr, results/8WDE/binding_filtered_chimerax_8WDE.defattr, results/8WDE/escape_filtered_chimerax_8WDE.defattr
+    jobid: 0
+    reason: Input files updated by another job: results/6U7H/binding_filtered_chimerax_6U7H.defattr, results/8WDE/binding_filtered_chimerax_8WDE.defattr, results/6U7E/entry_filtered_chimerax_6U7E.defattr, results/8WDE/escape_filtered_chimerax_8WDE.defattr, results/6U7E/escape_filtered_chimerax_6U7E.defattr, results/6U7E/binding_filtered_chimerax_6U7E.defattr, results/6U7H/entry_filtered_chimerax_6U7H.defattr, results/8WDE/entry_filtered_chimerax_8WDE.defattr, results/6U7H/escape_filtered_chimerax_6U7H.defattr
+    resources: tmpdir=/tmp
+
+[Fri Jun 20 14:18:55 2025]
+Finished job 0.
+19 of 19 steps (100%) done
+Complete log: .snakemake/log/2025-06-20T141844.265654.snakemake.log
