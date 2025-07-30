@@ -168,13 +168,34 @@ antibody_selections:
       use_in_fit: false
      FS_B-250623-85_7-2IC99: #IC 2*99
       concentration: 0.243902439
-      use_in_fit: true
+      use_in_fit: false
      FS_B-250623-85_7-6IC99: #IC 6*99
       concentration: 0.375838926
       use_in_fit: true
-     FS_B-250623-85_7-10IC99: #IC 8*99
+     FS_B-250623-85_7-10IC99: #IC 10*99
       concentration: 0.500894454
       use_in_fit: true
+
+  FS_A-85_7-sera:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: FS_A-250729-85_7-0
+    antibody_samples:
+      FS_A-250729-85_7-2IC99: #IC 2*99
+       concentration: 0.248120301
+       use_in_fit: false
+      FS_A-250729-85_7-6IC99: #IC 6*99
+       concentration: 0.404761905
+       use_in_fit: false
+      FS_A-250729-85_7-10IC99: #IC 10*99
+       concentration: 0.519230769
+       use_in_fit: true
+      FS_A-250729-85_7-12IC99: #IC 12*99
+       concentration: 0.579831933
+       use_in_fit: true
 
   # 85_3-sera
   FS_A-85_3-sera:
@@ -184,7 +205,7 @@ antibody_selections:
     escape_plot_kwargs: *escape_plot_kwargs_default
     plot_hide_stats: *plot_hide_stats_default
     no_antibody_sample: FS_B-250623-85_3-0
-    antibody_samples:
+    antibody_samples: 
      FS_B-250623-85_3-IC99: #IC 99
       concentration: 0.091541055
       use_in_fit: false
@@ -193,8 +214,8 @@ antibody_selections:
       use_in_fit: true
      FS_B-250623-85_3-6IC99: #IC 6*99
       concentration: 0.376788325
-      use_in_fit: true
-     FS_B-250623-85_3-10IC99: #IC 8*99
+      use_in_fit: false
+     FS_B-250623-85_3-10IC99: #IC 10*99
       concentration: 0.446327444
       use_in_fit: true
 
@@ -205,7 +226,7 @@ antibody_selections:
     escape_plot_kwargs: *escape_plot_kwargs_default
     plot_hide_stats: *plot_hide_stats_default
     no_antibody_sample: FS_A-250520-85_3-0
-    antibody_samples:
+    antibody_samples: 
      FS_A-250520-85_3-IC99: #IC 99
       concentration: 0.09055933
       use_in_fit: false
@@ -214,7 +235,7 @@ antibody_selections:
       use_in_fit: true
      FS_A-250520-85_3-6IC99: #IC 6*99
       concentration: 0.374006907
-      use_in_fit: true
+      use_in_fit: false
      FS_A-250520-85_3-8IC99: #IC 8*99
       concentration: 0.49894014
       use_in_fit: true
@@ -312,7 +333,7 @@ avg_escape_plot_kwargs_default: &avg_escape_plot_kwargs_default
 
 # Define defaults for each antibody/serum, used via the merge (<<) operator
 avg_antibody_escape_default: &avg_antibody_escape_default
-  icXX: 90  # IC90
+  icXX: 50  # IC90
   show_icXX_in_docs: false  # Do we link ICXX plots/CSVs in docs? Missing equates to false.
   escape_plot_kwargs:
     <<: *avg_escape_plot_kwargs_default
@@ -323,7 +344,7 @@ avg_antibody_escape_default: &avg_antibody_escape_default
 # Define the receptor affinity experiments to average
 avg_receptor_affinity_default: &avg_receptor_affinity_default
   <<: *avg_antibody_escape_default
-  icXX: 50  # IC50
+  icXX: 50  # IC90
 
 # Define the antibodies/sera to average
 avg_antibody_escape:
@@ -343,6 +364,7 @@ avg_antibody_escape:
     title: Escape map for 85_7 sera
     selections:
       - FS_B-85_7-sera
+      - FS_A-85_7-sera
 avg_receptor_affinity:
   human_APN_binding:
     <<: *avg_receptor_affinity_default
