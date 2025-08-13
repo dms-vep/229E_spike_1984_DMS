@@ -176,7 +176,7 @@ antibody_selections:
       concentration: 0.500894454
       use_in_fit: true
 
-  FS_A-85_7-sera:
+  FS_A-85_7-sera_spinfected:
     neut_standard_name: neut_standard
     prob_escape_filters: *prob_escape_filters_default
     polyclonal_params: *polyclonal_params_default
@@ -195,6 +195,27 @@ antibody_selections:
        use_in_fit: true
       FS_A-250729-85_7-12IC99: #IC 12*99
        concentration: 0.579831933
+       use_in_fit: true
+
+  FS_A-85_7-sera:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: FS_A-250811-85_7-0
+    antibody_samples:
+      FS_A-250811-85_7-2IC99: #IC 2*99
+       concentration: 0.244755245
+       use_in_fit: false
+      FS_A-250811-85_7-6IC99: #IC 6*99
+       concentration: 0.402654867
+       use_in_fit: true
+      FS_A-250811-85_7-10IC99: #IC 10*99
+       concentration: 0.517857143
+       use_in_fit: true
+      FS_A-250811-85_7-12IC99: #IC 12*99
+       concentration: 0.578783151
        use_in_fit: true
 
   # 85_3-sera
@@ -364,6 +385,7 @@ avg_antibody_escape:
     title: Escape map for 85_7 sera
     selections:
       - FS_B-85_7-sera
+      - FS_A-85_7-sera_spinfected
       - FS_A-85_7-sera
 avg_receptor_affinity:
   human_APN_binding:
