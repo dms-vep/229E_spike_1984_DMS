@@ -156,6 +156,24 @@ antibody_selections:
   # ---------------------------------------------------------------------------------
 
   # 87_2-sera
+  FS_B-87_2-sera:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: FS_B-250827-noAb
+    antibody_samples:
+     FS_B-250827-87_2-3IC99: #IC 3*99
+      concentration: 0.254658385
+      use_in_fit: true
+     FS_B-250827-87_2-6IC99: #IC 6*99
+      concentration: 0.405940594
+      use_in_fit: true
+     FS_B-250827-87_2-12IC99: #IC 12*99
+      concentration: 0.562043796
+      use_in_fit: true
+
   FS_A-87_2-sera:
     neut_standard_name: neut_standard
     prob_escape_filters: *prob_escape_filters_default
@@ -190,6 +208,24 @@ antibody_selections:
       concentration: 0.405940594
       use_in_fit: true
      FS_A-250825-86_11-12IC99: #IC 12*99
+      concentration: 0.562043796
+      use_in_fit: true
+
+  FS_B-86_11-sera:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: FS_B-250827-noAb
+    antibody_samples:
+     FS_B-250827-86_11-3IC99: #IC 3*99
+      concentration: 0.254658385
+      use_in_fit: true
+     FS_B-250827-86_11-6IC99: #IC 6*99
+      concentration: 0.405940594
+      use_in_fit: true
+     FS_B-250827-86_11-12IC99: #IC 12*99
       concentration: 0.562043796
       use_in_fit: true
      
@@ -431,11 +467,13 @@ avg_antibody_escape:
     title: Escape map for 85_7 sera
     selections:
       - FS_A-87_2-sera
+      - FS_B-87_2-sera
   86_11-sera:
     <<: *avg_antibody_escape_default
     title: Escape map for 85_7 sera
     selections:
       - FS_A-86_11-sera
+      - FS_B-86_11-sera
 avg_receptor_affinity:
   human_APN_binding:
     <<: *avg_receptor_affinity_default

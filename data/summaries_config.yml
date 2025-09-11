@@ -24,7 +24,7 @@ summary_default: &summary_default
   scale_lineplot_height: 1  # scale height of escape lineplots by this factor
   selectable_per_antibody_heatmap: False  # does heatmap allow per-antibody selection?
   antibody_escape:  # show effects on antibody escape, empty dict if no antibodies being shown
-    monoclonal antibodies:  # name each set of antibodies
+    human sera:  # name each set of antibodies
       stat: escape_median  # columin in CSV with value
       # you can either specify a Vega color scheme 
       # (https://vega.github.io/vega/docs/schemes/#redblue)
@@ -39,6 +39,8 @@ summary_default: &summary_default
       antibody_list:  # antibody name followed by CSV with data for antibody
         SD85_3: results/antibody_escape/averages/85_3-sera_mut_effect.csv
         SD85_7: results/antibody_escape/averages/85_7-sera_mut_effect.csv
+        SD87_2: results/antibody_escape/averages/87_2-sera_mut_effect.csv
+        SD86_11: results/antibody_escape/averages/86_11-sera_mut_effect.csv
       no_heatmap: False  # optional argument, do not show heatmap for this antibody set
   other_phenotypes:  # list other phenotypes to plot, empty dict if no other phenotypes
     APN mediated entry:
