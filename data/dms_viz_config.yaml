@@ -38,7 +38,7 @@ antibody_escape_on_s_6U7H:
   data_csv: results/summaries/summary_default.csv
   sitemap_csv: data/dms-viz-sitemap.csv
   melt_condition_metric_cols: null
-  metric: monoclonal antibodies escape
+  metric: human sera escape
   opt_params: &escape_opt_params
     <<: *escape_opt_params
     included-chains: A B C
@@ -76,7 +76,7 @@ antibody_escape_on_s_8WDE:
   data_csv: results/summaries/summary_default.csv
   sitemap_csv: data/dms-viz-sitemap.csv
   melt_condition_metric_cols: null
-  metric: monoclonal antibodies escape
+  metric: human sera escape
   opt_params: &escape_opt_params
     <<: *escape_opt_params
     included-chains: A B C
@@ -115,7 +115,7 @@ antibody_escape_on_s_7CYC:
   data_csv: results/summaries/summary_default.csv
   sitemap_csv: data/dms-viz-sitemap.csv
   melt_condition_metric_cols: null
-  metric: monoclonal antibodies escape
+  metric: human sera escape
   opt_params: &escape_opt_params
     <<: *escape_opt_params
     included-chains: A B C

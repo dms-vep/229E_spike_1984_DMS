@@ -1,0 +1,9 @@
+Building DAG of jobs...
+InputFunctionException in rule chimerax_filter in file /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/structure_analysis_plots/chimerax/Snakefile, line 47:
+Error:
+  KeyError: 'escape_86_11'
+Wildcards:
+  structure=8WDE
+  name=escape_86_11
+Traceback:
+  File "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/structure_analysis_plots/chimerax/Snakefile", line 50, in <lambda>

@@ -1,0 +1,92 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                count
+---------------  -------
+all                    1
+chimerax_filter        9
+make_defattr           9
+total                 19
+
+Select jobs to execute...
+
+[Thu Sep 18 13:01:30 2025]
+rule chimerax_filter:
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/receptor_affinity/averages/human_APN_binding_mut_effect.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/binding_filtered_6U7H.csv, chimerax_files/binding_filtered_chimerax_6U7H.csv
+    jobid: 10
+    reason: Updated input files: chimerax_pipeline.py
+    wildcards: structure=6U7H, name=binding
+    resources: tmpdir=/tmp
+
+
+[Thu Sep 18 13:01:31 2025]
+rule chimerax_filter:
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/86_11-sera_mut_effect.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/escape_filtered_6U7E.csv, chimerax_files/escape_filtered_chimerax_6U7E.csv
+    jobid: 6
+    reason: Updated input files: chimerax_pipeline.py
+    wildcards: structure=6U7E, name=escape
+    resources: tmpdir=/tmp
+
+
+[Thu Sep 18 13:01:31 2025]
+rule chimerax_filter:
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/func_effects/averages/cell_entry_func_effects.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/entry_filtered_8WDE.csv, chimerax_files/entry_filtered_chimerax_8WDE.csv
+    jobid: 14
+    reason: Updated input files: chimerax_pipeline.py
+    wildcards: structure=8WDE, name=entry
+    resources: tmpdir=/tmp
+
+
+[Thu Sep 18 13:01:31 2025]
+rule chimerax_filter:
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/receptor_affinity/averages/human_APN_binding_mut_effect.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/binding_filtered_6U7E.csv, chimerax_files/binding_filtered_chimerax_6U7E.csv
+    jobid: 4
+    reason: Updated input files: chimerax_pipeline.py
+    wildcards: structure=6U7E, name=binding
+    resources: tmpdir=/tmp
+
+[Thu Sep 18 13:01:36 2025]
+[Thu Sep 18 13:01:36 2025]
+Error in rule chimerax_filter:
+    jobid: 4
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/receptor_affinity/averages/human_APN_binding_mut_effect.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/binding_filtered_6U7E.csv, chimerax_files/binding_filtered_chimerax_6U7E.csv
+    shell:
+        
+        python chimerax_pipeline.py             --func_file /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/receptor_affinity/averages/human_APN_binding_mut_effect.csv             --site_map /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv             --structure 6U7E             --std_col binding_std             --effect_col binding_mean
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Error in rule chimerax_filter:
+    jobid: 6
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/86_11-sera_mut_effect.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/escape_filtered_6U7E.csv, chimerax_files/escape_filtered_chimerax_6U7E.csv
+    shell:
+        
+        python chimerax_pipeline.py             --func_file /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/86_11-sera_mut_effect.csv             --site_map /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv             --structure 6U7E             --std_col escape_std             --effect_col escape_mean
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Thu Sep 18 13:01:36 2025]
+Error in rule chimerax_filter:
+    jobid: 10
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/receptor_affinity/averages/human_APN_binding_mut_effect.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/binding_filtered_6U7H.csv, chimerax_files/binding_filtered_chimerax_6U7H.csv
+    shell:
+        
+        python chimerax_pipeline.py             --func_file /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/receptor_affinity/averages/human_APN_binding_mut_effect.csv             --site_map /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv             --structure 6U7H             --std_col binding_std             --effect_col binding_mean
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Thu Sep 18 13:01:37 2025]
+Finished job 14.
+1 of 19 steps (5%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-09-18T130123.778985.snakemake.log

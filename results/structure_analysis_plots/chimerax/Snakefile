@@ -1,4 +1,4 @@
-import os
+import os, glob
 
 configfile: "config.yaml"
 
@@ -12,22 +12,47 @@ INPUT_FILES = config["input_files"]
 SITE_MAP = config["site_map"]
 
 
+ANTIBODY_TYPES = list(INPUT_FILES["escape"].keys())
+
+
+def make_targets():
+    targets = []
+    for s in STRUCTURES:
+        # entry and binding
+        targets.append(f"results/{s}/entry_filtered_chimerax_{s}.defattr")
+        targets.append(f"results/{s}/binding_filtered_chimerax_{s}.defattr")
+
+        # escape: preserve exactly the keys from config
+        for ab in ANTIBODY_TYPES:
+            targets.append(f"results/{s}/escape_{ab}_filtered_chimerax_{s}.defattr")
+    return targets
+
+def get_func_file(wildcards):
+    if wildcards.name in ["entry", "binding"]:
+        return INPUT_FILES[wildcards.name]
+    elif wildcards.name.startswith("escape_"):
+        ab = wildcards.name.split("_", 1)[1]   # preserve underscore: "86_11"
+        return INPUT_FILES["escape"][ab]
+    else:
+        raise ValueError(f"Unexpected name: {wildcards.name}")
+
 rule all:
     input:
-        expand(f"results/{{structure}}/{{name}}_filtered_chimerax_{{structure}}.defattr",
-               structure=STRUCTURES, name=["entry", "binding", "escape"])
+        make_targets()
+
+
 
 rule chimerax_filter:
     input:
         data="chimerax_pipeline.py",
-        func_file=lambda wildcards: INPUT_FILES[wildcards.name],
+        func_file=get_func_file,
         site_map=SITE_MAP
     output:
-        filtered_file=f"chimerax_files/{{name}}_filtered_{{structure}}.csv",
-        mean_file=f"chimerax_files/{{name}}_filtered_chimerax_{{structure}}.csv"
+        filtered_file="chimerax_files/{name}_filtered_{structure}.csv",
+        mean_file="chimerax_files/{name}_filtered_chimerax_{structure}.csv"
     params:
-        std_col=lambda wildcards: EFFECT_TYPES[wildcards.name][0],
-        effect_col=lambda wildcards: EFFECT_TYPES[wildcards.name][1],
+        std_col=lambda wildcards: EFFECT_TYPES[wildcards.name.split("_")[0]][0],
+        effect_col=lambda wildcards: EFFECT_TYPES[wildcards.name.split("_")[0]][1],
         structure="{structure}",
         name="{name}"
     shell:
@@ -42,13 +67,13 @@ rule chimerax_filter:
 
 rule make_defattr:
     input:
-        infile=f"chimerax_files/{{name}}_filtered_chimerax_{{structure}}.csv"
+        infile="chimerax_files/{name}_filtered_chimerax_{structure}.csv"
     output:
-        defattr=f"results/{{structure}}/{{name}}_filtered_chimerax_{{structure}}.defattr"
+        defattr="results/{structure}/{name}_filtered_chimerax_{structure}.defattr"
     params:
         name=lambda wildcards: wildcards.name,
         structure=lambda wildcards: wildcards.structure,
-        effect_col=lambda wildcards: EFFECT_TYPES[wildcards.name][1],
+        effect_col=lambda wildcards: EFFECT_TYPES[wildcards.name.split("_")[0]][1],
         outdir=lambda wildcards: f"results/{wildcards.structure}"
     shell:
         """

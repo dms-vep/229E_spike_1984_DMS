@@ -16,7 +16,7 @@ def convert_sites_to_ref(entry_results, site_map_df, structure_pdb_entry):
     return entry_results
 
 def chimerax_entry_prep(entry_df_path, structure_pdb_entry, std_column, effect_column,
-                        site_map_path, times_seen=2, entry_std=3, min_effect=-5):
+                        site_map_path, times_seen=2, entry_std=3, min_effect=-2.5):
     func_data = pd.read_csv(entry_df_path)
     entry_df = pd.read_csv('/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/func_effects/averages/cell_entry_func_effects.csv')
     site_map = pd.read_csv(site_map_path)
@@ -59,6 +59,10 @@ def chimerax_entry_prep(entry_df_path, structure_pdb_entry, std_column, effect_c
 
     if std_column == 'effect_std':
         base_file_name = 'entry'
+    elif selection_type == 'antibody_escape':
+        antibody = entry_df_path.split('/')[-1].split('-sera')[0]
+        antibody = antibody.replace("_", "-")
+        base_file_name = f'escape_{antibody}'
     else:
         base_file_name = std_column.split('_')[0]
     output_dir = "chimerax_files"
@@ -82,6 +86,8 @@ def aggregate_entry_mean(infile, name, effect_col, outdir):
 
     os.makedirs(outdir, exist_ok=True)
     outfile = os.path.join(outdir, os.path.basename(infile).replace('.csv', '.csv'))
+    if '_' in name:
+        name = name.split("_")[0]
 
     with open(outfile, "w") as f:
         f.write(f"attribute: {name}\n")

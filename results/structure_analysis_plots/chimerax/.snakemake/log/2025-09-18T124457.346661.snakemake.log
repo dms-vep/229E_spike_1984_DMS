@@ -1,0 +1,106 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                count
+---------------  -------
+all                    1
+chimerax_filter        3
+make_defattr           3
+total                  7
+
+Select jobs to execute...
+
+[Thu Sep 18 12:45:18 2025]
+rule chimerax_filter:
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/87_2-sera_mut_effect.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/escape_filtered_8WDE.csv, chimerax_files/escape_filtered_chimerax_8WDE.csv
+    jobid: 18
+    reason: Updated input files: /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/87_2-sera_mut_effect.csv
+    wildcards: structure=8WDE, name=escape
+    resources: tmpdir=/tmp
+
+
+[Thu Sep 18 12:45:18 2025]
+rule chimerax_filter:
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/87_2-sera_mut_effect.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/escape_filtered_6U7E.csv, chimerax_files/escape_filtered_chimerax_6U7E.csv
+    jobid: 6
+    reason: Updated input files: /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/87_2-sera_mut_effect.csv
+    wildcards: structure=6U7E, name=escape
+    resources: tmpdir=/tmp
+
+
+[Thu Sep 18 12:45:18 2025]
+rule chimerax_filter:
+    input: chimerax_pipeline.py, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/87_2-sera_mut_effect.csv, /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv
+    output: chimerax_files/escape_filtered_6U7H.csv, chimerax_files/escape_filtered_chimerax_6U7H.csv
+    jobid: 12
+    reason: Updated input files: /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/87_2-sera_mut_effect.csv
+    wildcards: structure=6U7H, name=escape
+    resources: tmpdir=/tmp
+
+[Thu Sep 18 12:45:19 2025]
+Finished job 12.
+1 of 7 steps (14%) done
+Select jobs to execute...
+
+[Thu Sep 18 12:45:19 2025]
+rule make_defattr:
+    input: chimerax_files/escape_filtered_chimerax_6U7H.csv
+    output: results/6U7H/escape_filtered_chimerax_6U7H.defattr
+    jobid: 11
+    reason: Missing output files: results/6U7H/escape_filtered_chimerax_6U7H.defattr; Input files updated by another job: chimerax_files/escape_filtered_chimerax_6U7H.csv
+    wildcards: structure=6U7H, name=escape
+    resources: tmpdir=/tmp
+
+[Thu Sep 18 12:45:19 2025]
+Finished job 18.
+2 of 7 steps (29%) done
+[Thu Sep 18 12:45:19 2025]
+Finished job 6.
+3 of 7 steps (43%) done
+Select jobs to execute...
+
+[Thu Sep 18 12:45:19 2025]
+rule make_defattr:
+    input: chimerax_files/escape_filtered_chimerax_6U7E.csv
+    output: results/6U7E/escape_filtered_chimerax_6U7E.defattr
+    jobid: 5
+    reason: Missing output files: results/6U7E/escape_filtered_chimerax_6U7E.defattr; Input files updated by another job: chimerax_files/escape_filtered_chimerax_6U7E.csv
+    wildcards: structure=6U7E, name=escape
+    resources: tmpdir=/tmp
+
+
+[Thu Sep 18 12:45:19 2025]
+rule make_defattr:
+    input: chimerax_files/escape_filtered_chimerax_8WDE.csv
+    output: results/8WDE/escape_filtered_chimerax_8WDE.defattr
+    jobid: 17
+    reason: Missing output files: results/8WDE/escape_filtered_chimerax_8WDE.defattr; Input files updated by another job: chimerax_files/escape_filtered_chimerax_8WDE.csv
+    wildcards: structure=8WDE, name=escape
+    resources: tmpdir=/tmp
+
+[Thu Sep 18 12:45:20 2025]
+Finished job 11.
+4 of 7 steps (57%) done
+[Thu Sep 18 12:45:20 2025]
+Finished job 5.
+5 of 7 steps (71%) done
+[Thu Sep 18 12:45:20 2025]
+Finished job 17.
+6 of 7 steps (86%) done
+Select jobs to execute...
+
+[Thu Sep 18 12:45:20 2025]
+localrule all:
+    input: results/6U7E/entry_filtered_chimerax_6U7E.defattr, results/6U7E/binding_filtered_chimerax_6U7E.defattr, results/6U7E/escape_filtered_chimerax_6U7E.defattr, results/6U7H/entry_filtered_chimerax_6U7H.defattr, results/6U7H/binding_filtered_chimerax_6U7H.defattr, results/6U7H/escape_filtered_chimerax_6U7H.defattr, results/8WDE/entry_filtered_chimerax_8WDE.defattr, results/8WDE/binding_filtered_chimerax_8WDE.defattr, results/8WDE/escape_filtered_chimerax_8WDE.defattr
+    jobid: 0
+    reason: Input files updated by another job: results/8WDE/escape_filtered_chimerax_8WDE.defattr, results/6U7H/escape_filtered_chimerax_6U7H.defattr, results/6U7E/escape_filtered_chimerax_6U7E.defattr
+    resources: tmpdir=/tmp
+
+[Thu Sep 18 12:45:20 2025]
+Finished job 0.
+7 of 7 steps (100%) done
+Complete log: .snakemake/log/2025-09-18T124457.346661.snakemake.log
