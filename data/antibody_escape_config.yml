@@ -154,6 +154,81 @@ receptor_plot_hide_stats_default: &receptor_plot_hide_stats_default
 # define the antibody selections
 antibody_selections:
   # ---------------------------------------------------------------------------------
+  # 95_3-sera
+  FS_A-95_3-sera:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: FS_A-251006-noAnb
+    antibody_samples:
+     FS_A-251006-95_3_3IC99: #IC 3*99
+      concentration: 0.254658385
+      use_in_fit: false
+     FS_A-251006-95_3_6IC99: #IC 6*99
+      concentration: 0.405940594
+      use_in_fit: true
+     FS_A-251006-95_3_12IC99: #IC 12*99
+      concentration: 0.562043796
+      use_in_fit: true
+
+  FS_B-95_3-sera:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: FS_B-251006-noAnb
+    antibody_samples:
+     FS_B-251006-95_3_3IC99: #IC 3*99
+      concentration: 0.254658385
+      use_in_fit: false
+     FS_B-251006-95_3_6IC99: #IC 6*99
+      concentration: 0.405940594
+      use_in_fit: true
+     FS_B-251006-95_3_12IC99: #IC 12*99
+      concentration: 0.562043796
+      use_in_fit: true
+
+
+  # 93_4-sera
+  FS_A-93_4-sera:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: FS_A-251006-noAnb
+    antibody_samples:
+     FS_A-251006-93_4_3IC99: #IC 3*99
+      concentration: 0.254658385
+      use_in_fit: false
+     FS_A-251006-93_4_6IC99: #IC 6*99
+      concentration: 0.405940594
+      use_in_fit: true
+     FS_A-251006-93_4_12IC99: #IC 12*99
+      concentration: 0.562043796
+      use_in_fit: true
+
+  FS_B-93_4-sera:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: FS_B-251006-noAnb
+    antibody_samples:
+     FS_B-251006-93_4_3IC99: #IC 3*99
+      concentration: 0.254658385
+      use_in_fit: false
+     FS_B-251006-93_4_6IC99: #IC 6*99
+      concentration: 0.405940594
+      use_in_fit: true
+     FS_B-251006-93_4_12IC99: #IC 12*99
+      concentration: 0.562043796
+      use_in_fit: true
+
   # 88_4-sera
   FS_A-88_4-sera:
     neut_standard_name: neut_standard
@@ -559,6 +634,18 @@ avg_antibody_escape:
     selections:
       - FS_A-88_4-sera
       - FS_B-88_4-sera
+  93_4-sera:
+    <<: *avg_antibody_escape_default
+    title: Escape map for 85_7 sera
+    selections:
+      - FS_A-93_4-sera
+      - FS_B-93_4-sera
+  95_3-sera:
+    <<: *avg_antibody_escape_default
+    title: Escape map for 85_7 sera
+    selections:
+      - FS_A-95_3-sera
+      - FS_B-95_3-sera
 avg_receptor_affinity:
   human_APN_binding:
     <<: *avg_receptor_affinity_default

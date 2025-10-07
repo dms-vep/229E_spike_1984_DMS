@@ -1,9 +1,0 @@
-Building DAG of jobs...
-InputFunctionException in rule chimerax_filter in file /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/structure_analysis_plots/chimerax/Snakefile, line 47:
-Error:
-  KeyError: 'escape__chimerax_6U7E.csv'
-Wildcards:
-  structure=6U7E
-  name=escape__chimerax_6U7E.csv
-Traceback:
-  File "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/structure_analysis_plots/chimerax/Snakefile", line 50, in <lambda>

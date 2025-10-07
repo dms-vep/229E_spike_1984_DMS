@@ -24,6 +24,8 @@ results/barcode_counts/*
 results/structure_analysis_plots/*
 !results/structure_analysis_plots/chimerax/
 !results/structure_analysis_plots/chimerax/*
+results/structure_analysis_plots/chimerax/.snakemake/
+results/structure_analysis_plots/chimerax/.DS_Store
 
 !results/func_effects
 results/func_effects/*

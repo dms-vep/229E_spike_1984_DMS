@@ -1,3 +1,0 @@
-Building DAG of jobs...
-WorkflowError in rule chimerax_filter in file /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/structure_analysis_plots/chimerax/Snakefile, line 35:
-Function did not return str or list of str.
