@@ -7607,7 +7607,7 @@ input_sitemap_csv = "results/dms-viz/vlp_w_mMxra8_6nk6/vlp_w_mMxra8_6nk6_sitemap
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_injected-parameters" id="cell-id=1b74d2fb">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_injected-parameters" id="cell-id=585b7eb8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7620,7 +7620,7 @@ input_sitemap_csv = "results/dms-viz/vlp_w_mMxra8_6nk6/vlp_w_mMxra8_6nk6_sitemap
 <span class="n">pdb_type</span> <span class="o">=</span> <span class="s2">"biological_assembly"</span>
 <span class="n">name</span> <span class="o">=</span> <span class="s2">"spike 229E mutation effects on sera escape"</span>
 <span class="n">melt_condition_metric_cols</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="n">metric</span> <span class="o">=</span> <span class="s2">"human sera escape"</span>
+<span class="n">metric</span> <span class="o">=</span> <span class="s2">"human resistant sera escape"</span>
 <span class="n">opt_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"included-chains"</span><span class="p">:</span> <span class="s2">"A B C"</span><span class="p">}</span>
 <span class="n">data_csv</span> <span class="o">=</span> <span class="s2">"results/summaries/summary_default.csv"</span>
 <span class="n">sitemap_csv</span> <span class="o">=</span> <span class="s2">"data/dms-viz-sitemap.csv"</span>
@@ -7972,7 +7972,7 @@ Comparing `site` in data to `reference_site` in sitemap:
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>PDB has all_chains=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']
 Included chains for mapping DMS data: included_chains=['A', 'B', 'C']
-The chains specified in the sitemap are sitemap_chains={'B', 'A', 'C'}
+The chains specified in the sitemap are sitemap_chains={'A', 'B', 'C'}
 
 Comparing wildtype residues in DMS data and PDB for chainset=['A', 'B', 'C']
 Comparing wildtype amino acids for sites with DMS data versus sites in PDB:
@@ -8477,7 +8477,7 @@ Here are sites with different amino acids between DMS data and PDB:
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Writing sitemap with null protein sites dropped to input_sitemap_csv='results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE_sitemap.csv'
-Writing data for data_cols=['site', 'wildtype', 'mutant', 'human sera escape'] to input_data_csv='results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE_data.csv'
+Writing data for data_cols=['site', 'wildtype', 'mutant', 'human resistant sera escape'] to input_data_csv='results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE_data.csv'
 </pre>
 </div>
 </div>
@@ -8578,7 +8578,7 @@ Writing data for data_cols=['site', 'wildtype', 'mutant', 'human sera escape'] t
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Running the following cmds:
-configure-dms-viz format --name spike 229E mutation effects on sera escape --input results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE_data.csv --metric human sera escape --sitemap results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE_sitemap.csv --structure results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE.pdb --output results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE.json --included-chains A B C --colors #db5f57
+configure-dms-viz format --name spike 229E mutation effects on sera escape --input results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE_data.csv --metric human resistant sera escape --sitemap results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE_sitemap.csv --structure results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE.pdb --output results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE.json --included-chains A B C --colors #db5f57
 
 </pre>
 </div>
@@ -8592,19 +8592,19 @@ returncode:
 0
 
 args:
-['configure-dms-viz', 'format', '--name', 'spike 229E mutation effects on sera escape', '--input', 'results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE_data.csv', '--metric', 'human sera escape', '--sitemap', 'results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE_sitemap.csv', '--structure', 'results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE.pdb', '--output', 'results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE.json', '--included-chains', 'A B C', '--colors', '#db5f57']
+['configure-dms-viz', 'format', '--name', 'spike 229E mutation effects on sera escape', '--input', 'results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE_data.csv', '--metric', 'human resistant sera escape', '--sitemap', 'results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE_sitemap.csv', '--structure', 'results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE.pdb', '--output', 'results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE.json', '--included-chains', 'A B C', '--colors', '#db5f57']
 
 stdout:
 
-Formatting data for visualization using the 'human sera escape' column from 'results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE_data.csv'...
+Formatting data for visualization using the 'human resistant sera escape' column from 'results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE_data.csv'...
 
 Using sitemap from 'results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE_sitemap.csv'.
 
 Warning: NaN values were found in the metric column. These rows will be filtered out.
 
 Warning: There are sites where there are no mutations, in other words, only the wildtype residue is present in the mutation column for that site. These rows will be filtered out.
-About 95.45% (818 of 857) of the wildtype residues in the data match the corresponding residues in the structure.
-About 22.93% (255 of 1112) of the data sites are missing from the structure.
+About 95.44% (817 of 856) of the wildtype residues in the data match the corresponding residues in the structure.
+About 22.95% (255 of 1111) of the data sites are missing from the structure.
 
 Success! The visualization JSON was written to 'results/dms-viz/antibody_escape_on_s_8WDE/antibody_escape_on_s_8WDE.json'
 
