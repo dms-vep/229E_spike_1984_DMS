@@ -16,6 +16,8 @@ input_files:
     85-7: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/85_7-sera_mut_effect.csv"
     95-3: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/95_3-sera_mut_effect.csv"
     93-4: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/93_4-sera_mut_effect.csv"
+    resistant_mean: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/summary/resistant-sera.csv"
+    sesitive_mean: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/summary/sesitive-sera.csv"
 site_map: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv"
 output_dir: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/structure_analysis_plots/chimerax"
 

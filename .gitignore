@@ -66,5 +66,6 @@ results/summaries/*
 results/dms-viz/*/*
 !results/dms-viz/*/*.json
 
-
+*~
+~$*
 

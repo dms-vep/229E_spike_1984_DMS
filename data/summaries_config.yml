@@ -6,17 +6,38 @@
 # --------------------------------------------------------------------------------------
 
 # define defaults shared across summaries
-summary_default: &summary_default
+cell_entry_default: &cell_entry_default
   min_times_seen: 2  # only include mutations with times_seen >= this
-  min_frac_models: 1  # only include mutations in >= this fraction of models
+  min_frac_models: 0.75  # only include mutations in >= this fraction of models
   alphabet: [A, C, D, E, F, G, H, I, K, L, M, N, P, Q, R, S, T, V, W, Y]  # amino acids to include
   init_floor_escape_at_zero: false
   init_site_escape_stat: sum
   antibody_escape: {}
+  other_phenotypes:
+    cell entry:
+      csv: results/func_effects/averages/cell_entry_func_effects.csv
+      stat: effect
+      positive_color: "#56B4E9"  # light blue, positive heatmap color
+      negative_color: "#E69F00"  # orange, negative heatmap color
+      max_at_least: 2
+      fixed_min: -5
+      init_min_value: -2.5
+      le_filters:
+        effect_std: 2.5
+    receptor binding:
+      csv: results/receptor_affinity/averages/human_APN_binding_mut_effect.csv
+      stat: binding_median
+      positive_color: "#0072B2"  # dark blue
+      negative_color: "#D55E00"  # red
+      max_at_least: 2
+      min_at_least: -2
+      init_min_value: -20  # initial min value in slider
+      le_filters:  # only keep entries with indicated column is <= indicated value
+        binding_std: 2.5
 
 
-  summary_of_all_phenotypes:
-  <<: *summary_default
+summary_of_all_phenotypes:
+  <<: *cell_entry_default
   init_floor_escape_at_zero: false  # initially floor site escape to be >= 0?
   init_site_escape_stat: sum  # initially show site escape as this statistic
   lineplot_antibody_label_loc: right  # can be right or top
@@ -24,7 +45,7 @@ summary_default: &summary_default
   scale_lineplot_height: 1  # scale height of escape lineplots by this factor
   selectable_per_antibody_heatmap: False  # does heatmap allow per-antibody selection?
   antibody_escape:  # show effects on antibody escape, empty dict if no antibodies being shown
-    human sensitive sera:  # name each set of antibodies
+    human sensitive sera: &Human_sensitive_sera # name each set of antibodies
       stat: escape_median  # columin in CSV with value
       # you can either specify a Vega color scheme 
       # (https://vega.github.io/vega/docs/schemes/#redblue)
@@ -43,7 +64,7 @@ summary_default: &summary_default
         SD88_4: results/antibody_escape/averages/88_4-sera_mut_effect.csv
         SD93_4: results/antibody_escape/averages/93_4-sera_mut_effect.csv
       no_heatmap: False  # optional argument, do not show heatmap for this antibody set
-    human resistant sera:  # name each set of antibodies
+    human resistant sera: &Human_resistant_sera # name each set of antibodies
       stat: escape_median  # columin in CSV with value
       # you can either specify a Vega color scheme 
       # (https://vega.github.io/vega/docs/schemes/#redblue)
@@ -51,7 +72,7 @@ summary_default: &summary_default
       # color_scheme: redblue
       positive_color: "#56B4E9"  # light blue, positive heatmap color
       negative_color: "#E69F00"  # orange, negative heatmap color
-      max_at_least: 1  # make heatmap max at least
+      max_at_least: 2  # make heatmap max at least
       min_at_least: -1  # make heatmap min at least this small
       le_filters:  # only keep entries with indicated column is <= indicated value
         escape_std: 2
@@ -60,30 +81,4 @@ summary_default: &summary_default
         SD88_10: results/antibody_escape/averages/88_10-sera_mut_effect.csv
         SD95_3: results/antibody_escape/averages/95_3-sera_mut_effect.csv
       no_heatmap: False  # optional argument, do not show heatmap for this antibody set
-  other_phenotypes:  # list other phenotypes to plot, empty dict if no other phenotypes
-    APN mediated entry:
-      csv: results/func_effects/averages/cell_entry_func_effects.csv  # CSV with data
-      stat: effect  # column in CSV with value
-      # you can either specify a Vega color scheme 
-      # (https://vega.github.io/vega/docs/schemes/#redblue)
-      # as `color_scheme`, or specify `positive_color` and `negative_color`
-      # color_scheme: redblue
-      positive_color: '#461B7E'  # durk purple, positive heatmap color
-      negative_color: '#FA2A55'  # red-pink , negative color
-      fixed_max: 2  # specify either `max_at_least` or `fixed_max`
-      min_at_least: -1
-      init_min_value: -2.5 # initial min value in slider, set to null to make minimum value of data
-      le_filters:  # only keep entries with indicated column is <= indicated value
-        effect_std: 2.5
-      no_heatmap: false  # optional argument, do not show heatmap for this phenotype
-    receptor affinity:
-      csv: results/receptor_affinity/averages/human_APN_binding_mut_effect.csv
-      stat: binding_median
-      positive_color: "#0072B2"  # dark blue
-      negative_color: "#D55E00"  # red
-      max_at_least: 1
-      min_at_least: 0
-      init_min_value: -20  # initial min value in slider
-      le_filters:  # only keep entries with indicated column is <= indicated value
-        binding_std: 3.5
   

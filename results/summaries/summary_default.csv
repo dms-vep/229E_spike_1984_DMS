@@ -4410,7 +4410,7 @@ site,wildtype,mutant,human sensitive sera escape,human resistant sera escape,APN
 255,C,T,,,-4.957,,236,NTD
 255,C,V,-0.0869,-0.427,-4.926,,236,NTD
 255,C,W,,,-4.873,,236,NTD
-255,C,Y,,,-4.681,2.763,236,NTD
+255,C,Y,,,-4.681,,236,NTD
 256,N,C,-0.02074,-0.05782,-1.249,-0.474,237,NTD
 256,N,D,-0.03393,-0.1735,0.03166,0.1289,237,NTD
 256,N,E,-0.00626,0.01399,-0.05654,0.107,237,NTD
@@ -7184,7 +7184,7 @@ site,wildtype,mutant,human sensitive sera escape,human resistant sera escape,APN
 404,L,P,-0.1633,0.1815,-1.491,-1.887,383,RBD
 404,L,Q,,,-4.954,,383,RBD
 404,L,R,-0.2593,-0.127,-1.765,-2.976,383,RBD
-404,L,S,,,-4.835,-3.083,383,RBD
+404,L,S,,,-4.835,,383,RBD
 404,L,T,,,-2.269,-0.7652,383,RBD
 404,L,V,,,-0.6552,,383,RBD
 404,L,W,,,-0.8579,,383,RBD
