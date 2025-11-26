@@ -12,29 +12,29 @@ cell_entry_default: &cell_entry_default
   alphabet: [A, C, D, E, F, G, H, I, K, L, M, N, P, Q, R, S, T, V, W, Y]  # amino acids to include
   init_floor_escape_at_zero: false
   init_site_escape_stat: sum
-  antibody_escape: {}
   other_phenotypes:
-    cell entry:
+    cell entry: 
       csv: results/func_effects/averages/cell_entry_func_effects.csv
       stat: effect
-      positive_color: "#56B4E9"  # light blue, positive heatmap color
-      negative_color: "#E69F00"  # orange, negative heatmap color
+      color_scheme: redblue
       max_at_least: 2
       fixed_min: -5
       init_min_value: -2.5
       le_filters:
         effect_std: 2.5
-    receptor binding:
+    receptor binding: 
       csv: results/receptor_affinity/averages/human_APN_binding_mut_effect.csv
       stat: binding_median
-      positive_color: "#0072B2"  # dark blue
-      negative_color: "#D55E00"  # red
+      color_scheme: purplegreen
       max_at_least: 2
       min_at_least: -2
       init_min_value: -20  # initial min value in slider
       le_filters:  # only keep entries with indicated column is <= indicated value
         binding_std: 2.5
 
+cell_entry_and_binding:
+  <<: *cell_entry_default
+  antibody_escape: {}
 
 summary_of_all_phenotypes:
   <<: *cell_entry_default
@@ -51,8 +51,8 @@ summary_of_all_phenotypes:
       # (https://vega.github.io/vega/docs/schemes/#redblue)
       # as `color_scheme`, or specify `positive_color` and `negative_color`
       # color_scheme: redblue
-      positive_color: "#56B4E9"  # light blue, positive heatmap color
-      negative_color: "#E69F00"  # orange, negative heatmap color
+      positive_color: "#F2DD6E" # deep purple, positive heatmap color
+      negative_color: "#523A34" # light yellow, negative heatmap color
       max_at_least: 1  # make heatmap max at least
       min_at_least: -1  # make heatmap min at least this small
       le_filters:  # only keep entries with indicated column is <= indicated value

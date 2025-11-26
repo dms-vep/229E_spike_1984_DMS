@@ -11,7 +11,7 @@ cell_entry_on_s_6U7H:
   pdb_id: 6U7H
   name: spike 229E mutation effects on cell entry 
   pdb_type: biological_assembly
-  data_csv: results/summaries/summary_default.csv
+  data_csv: results/summaries/summary_of_all_phenotypes.csv
   sitemap_csv: data/dms-viz-sitemap.csv
   melt_condition_metric_cols: null
   metric: APN mediated entry # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
@@ -27,7 +27,7 @@ receptor_binding_on_s_6U7H:
   pdb_id: 6U7H
   name: spike 229E mutation effects hAPN receptor binding affinity 
   pdb_type: biological_assembly
-  data_csv: results/summaries/summary_default.csv
+  data_csv: results/summaries/summary_of_all_phenotypes.csv
   sitemap_csv: data/dms-viz-sitemap.csv
   melt_condition_metric_cols: null
   metric: receptor affinity  # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
@@ -63,7 +63,7 @@ cell_entry_on_s_8WDE:
   pdb_id: 8WDE
   name: spike 229E mutation effects on cell entry 
   pdb_type: biological_assembly
-  data_csv: results/summaries/cell_entry_default.csv
+  data_csv: results/summaries/summary_of_all_phenotypes.csv
   sitemap_csv: data/dms-viz-sitemap.csv
   melt_condition_metric_cols: null
   metric: cell entry # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
@@ -75,7 +75,7 @@ receptor_binding_on_s_8WDE:
   pdb_id: 8WDE
   name: spike 229E mutation effects hAPN receptor binding affinity 
   pdb_type: biological_assembly
-  data_csv: results/summaries/cell_entry_default.csv
+  data_csv: results/summaries/summary_of_all_phenotypes.csv
   sitemap_csv: data/dms-viz-sitemap.csv
   melt_condition_metric_cols: null
   metric: receptor binding  # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
@@ -106,7 +106,7 @@ cell_entry_on_s_7CYC:
   pdb_id: 7CYC
   name: spike 229E mutation effects on cell entry 
   pdb_type: biological_assembly
-  data_csv: results/summaries/cell_entry_default.csv
+  data_csv: results/summaries/summary_of_all_phenotypes.csv
   sitemap_csv: data/dms-viz-sitemap.csv
   melt_condition_metric_cols: null
   metric: cell entry # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
@@ -118,7 +118,7 @@ receptor_binding_on_s_7CYC:
   pdb_id: 7CYC
   name: spike 229E mutation effects hAPN receptor binding affinity 
   pdb_type: biological_assembly
-  data_csv: results/summaries/cell_entry_default.csv
+  data_csv: results/summaries/summary_of_all_phenotypes.csv
   sitemap_csv: data/dms-viz-sitemap.csv
   melt_condition_metric_cols: null
   metric: rreceptor binding   # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`

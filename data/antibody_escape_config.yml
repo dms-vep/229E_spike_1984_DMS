@@ -448,27 +448,6 @@ antibody_selections:
     polyclonal_params: *polyclonal_params_default
     escape_plot_kwargs: *escape_plot_kwargs_default
     plot_hide_stats: *plot_hide_stats_default
-    no_antibody_sample: FS_B-250623-85_3-0
-    antibody_samples: 
-     FS_B-250623-85_3-IC99: #IC 99
-      concentration: 0.091541055
-      use_in_fit: false
-     FS_B-250623-85_3-2IC99: #IC 2*99
-      concentration: 0.223936839
-      use_in_fit: false
-     FS_B-250623-85_3-6IC99: #IC 6*99
-      concentration: 0.376788325
-      use_in_fit: true
-     FS_B-250623-85_3-10IC99: #IC 10*99
-      concentration: 0.446327444
-      use_in_fit: true
-
-  FS_B-85_3-sera:
-    neut_standard_name: neut_standard
-    prob_escape_filters: *prob_escape_filters_default
-    polyclonal_params: *polyclonal_params_default
-    escape_plot_kwargs: *escape_plot_kwargs_default
-    plot_hide_stats: *plot_hide_stats_default
     no_antibody_sample: FS_A-250520-85_3-0
     antibody_samples: 
      FS_A-250520-85_3-IC99: #IC 99
@@ -483,6 +462,28 @@ antibody_selections:
      FS_A-250520-85_3-8IC99: #IC 8*99
       concentration: 0.49894014
       use_in_fit: true
+
+  FS_B-85_3-sera:
+    neut_standard_name: neut_standard
+    prob_escape_filters: *prob_escape_filters_default
+    polyclonal_params: *polyclonal_params_default
+    escape_plot_kwargs: *escape_plot_kwargs_default
+    plot_hide_stats: *plot_hide_stats_default
+    no_antibody_sample: FS_B-250623-85_3-0
+    antibody_samples: 
+     FS_B-250623-85_3-IC99: #IC 99
+      concentration: 0.091541055
+      use_in_fit: false
+     FS_B-250623-85_3-2IC99: #IC 2*99
+      concentration: 0.223936839
+      use_in_fit: false
+     FS_B-250623-85_3-6IC99: #IC 6*99
+      concentration: 0.376788325
+      use_in_fit: true
+     FS_B-250623-85_3-10IC99: #IC 10*99
+      concentration: 0.446327444
+      use_in_fit: true
+    
  
   # Pooled_hSera
   FS_A-Pooled_hSera:
