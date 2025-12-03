@@ -3,18 +3,18 @@
 # for more on `configure-dms-viz`.
 
 #---------------------------------------------------------------------------------------
-# Structurs 6U7E 6U7h 8WDE
+# Structurs 6U7H 8WDE
 #---------------------------------------------------------------------------------------
 # 6U7H
 
 cell_entry_on_s_6U7H:
   pdb_id: 6U7H
-  name: spike 229E mutation effects on cell entry 
+  name: spike 229E mutations effects on cell entry 
   pdb_type: biological_assembly
   data_csv: results/summaries/summary_of_all_phenotypes.csv
   sitemap_csv: data/dms-viz-sitemap.csv
   melt_condition_metric_cols: null
-  metric: APN mediated entry # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
+  metric: cell entry # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
   opt_params: &cell_entry_opt_params
     included-chains: A B C
     alphabet: RKHDEQNSTYWFAILMVGPC
@@ -25,12 +25,12 @@ cell_entry_on_s_6U7H:
 
 receptor_binding_on_s_6U7H:
   pdb_id: 6U7H
-  name: spike 229E mutation effects hAPN receptor binding affinity 
+  name: spike 229E mutations effects hAPN receptor binding
   pdb_type: biological_assembly
   data_csv: results/summaries/summary_of_all_phenotypes.csv
   sitemap_csv: data/dms-viz-sitemap.csv
   melt_condition_metric_cols: null
-  metric: receptor affinity  # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
+  metric: receptor binding  # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
   opt_params: 
     <<: *cell_entry_opt_params
     alphabet: RKHDEQNSTYWFAILMVGPC
@@ -41,7 +41,7 @@ receptor_binding_on_s_6U7H:
 
 antibody_escape_on_s_6U7H:
   pdb_id: 6U7H
-  name: spike 229E mutation effects on sera escape
+  name: spike 229E mutations effects on human resistnat sera escape
   pdb_type: biological_assembly
   data_csv: results/summaries/summary_of_all_phenotypes.csv
   sitemap_csv: data/dms-viz-sitemap.csv
@@ -61,7 +61,7 @@ antibody_escape_on_s_6U7H:
 
 cell_entry_on_s_8WDE:
   pdb_id: 8WDE
-  name: spike 229E mutation effects on cell entry 
+  name: spike 229E mutations effects on cell entry 
   pdb_type: biological_assembly
   data_csv: results/summaries/summary_of_all_phenotypes.csv
   sitemap_csv: data/dms-viz-sitemap.csv
@@ -73,14 +73,13 @@ cell_entry_on_s_8WDE:
 
 receptor_binding_on_s_8WDE:
   pdb_id: 8WDE
-  name: spike 229E mutation effects hAPN receptor binding affinity 
+  name: spike 229E mutations effects hAPN receptor binding 
   pdb_type: biological_assembly
   data_csv: results/summaries/summary_of_all_phenotypes.csv
   sitemap_csv: data/dms-viz-sitemap.csv
   melt_condition_metric_cols: null
   metric: receptor binding  # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
-  opt_params: 
-    opt_params: 
+  opt_params:
     <<: *cell_entry_opt_params
     alphabet: RKHDEQNSTYWFAILMVGPC
     floor: False
@@ -89,50 +88,7 @@ receptor_binding_on_s_8WDE:
 
 antibody_escape_on_s_8WDE:
   pdb_id: 8WDE
-  name: spike 229E mutation effects on sera escape
-  pdb_type: biological_assembly
-  data_csv: results/summaries/summary_of_all_phenotypes.csv
-  sitemap_csv: data/dms-viz-sitemap.csv
-  melt_condition_metric_cols: null
-  metric: human resistant sera escape
-  opt_params: 
-    <<: *escape_opt_params
-    included-chains: A B C
-
-#---------------------------------------------------------------------------------------
-# 7CYC
-
-cell_entry_on_s_7CYC:
-  pdb_id: 7CYC
-  name: spike 229E mutation effects on cell entry 
-  pdb_type: biological_assembly
-  data_csv: results/summaries/summary_of_all_phenotypes.csv
-  sitemap_csv: data/dms-viz-sitemap.csv
-  melt_condition_metric_cols: null
-  metric: cell entry # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
-  opt_params: 
-    <<: *cell_entry_opt_params
-    included-chains: A B C
-
-receptor_binding_on_s_7CYC:
-  pdb_id: 7CYC
-  name: spike 229E mutation effects hAPN receptor binding affinity 
-  pdb_type: biological_assembly
-  data_csv: results/summaries/summary_of_all_phenotypes.csv
-  sitemap_csv: data/dms-viz-sitemap.csv
-  melt_condition_metric_cols: null
-  metric: rreceptor binding   # metric to plot, in `data_csv` or created by `melt_conditions_metric_cols`
-  opt_params:
-    opt_params: 
-    <<: *cell_entry_opt_params
-    alphabet: RKHDEQNSTYWFAILMVGPC
-    floor: False
-    summary-stat: sum
-    heatmap-limits: "-40, 0, 40" 
-
-antibody_escape_on_s_7CYC:
-  pdb_id: 7CYC
-  name: spike 229E mutation effects on sera escape
+  name: spike 229E mutations effects on human resistnat sera escape
   pdb_type: biological_assembly
   data_csv: results/summaries/summary_of_all_phenotypes.csv
   sitemap_csv: data/dms-viz-sitemap.csv
