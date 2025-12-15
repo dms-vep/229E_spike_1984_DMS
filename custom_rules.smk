@@ -63,3 +63,40 @@ docs["dms-viz visualizations"] = {
         for viz_name in dms_viz_config
     },
 }
+
+
+rule binding_vs_escape:
+    """Compare binding and escape at key sites."""
+    input:
+        dms_csv="results/summaries/summary_of_all_sera.csv",
+        nb="notebooks/binding_vs_escape.ipynb",
+    output:
+        nb="results/notebooks/binding_vs_escape.ipynb",
+        RBD_up_down_chart_html = "results/binding_vs_escape/RBD_up_down_chart_html.html",
+        logoplot_subdir=directory("results/binding_vs_escape/logoplots"),
+        RBD_up_down_subdir=directory("results/RBD_up_down"),
+        RBD_up_down_csv = "results/RBD_up_down/RBD_up_down_sites.csv",
+    params:
+        yaml=lambda _, input, output: yaml_str(
+            {
+                "dms_csv": input.dms_csv,
+                "logoplot_subdir": output.logoplot_subdir,
+                "RBD_up_down_subdir": output.RBD_up_down_subdir,
+                "min_cell_entry": -2.5,
+                "min_mutations_at_site": 5,
+                "RBD_up_down_chart_html": output.RBD_up_down_chart_html,
+                "RBD_up_down_csv": output.RBD_up_down_csv,
+            }
+        ),
+    log:
+        log="results/logs/binding_vs_escape.txt",
+    conda:
+        os.path.join(config["pipeline_path"], "environment.yml")
+    shell:
+        "papermill {input.nb} {output.nb} -y '{params.yaml}' &> {log}"
+
+
+docs["binding vs escape effect"] = {
+    "Sites that affect RBD up/down conformation": rules.binding_vs_escape.output.RBD_up_down_chart_html,
+    "Notebook comparing binding vs escape at key sites": rules.binding_vs_escape.output.nb,
+}

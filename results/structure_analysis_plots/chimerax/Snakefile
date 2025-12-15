@@ -1,86 +1,87 @@
-import os, glob
+import os
 
 configfile: "config.yaml"
 
 STRUCTURES = config["structures"]
-EFFECT_TYPES = {
-    "entry": ("effect_std", "effect"),
-    "binding": ("binding_std", "binding_mean"),
-    "escape": ("escape_std", "escape_mean")
-}
 INPUT_FILES = config["input_files"]
 SITE_MAP = config["site_map"]
+OUTPUT_DIR = config["output_dir"]
 
+# Map the wildcard {name} to:
+# - effect column in the CSV
+# - input file from config
+EFFECT_COLS = {
+    "cell_entry": "cell entry",
+    "receptor_binding": "receptor binding",
+    "escape_resistant": "human resistant sera escape",
+    "escape_sensitive": "human sensitive sera escape",
+    "escape_sera": "all sera escape",
+}
 
-ANTIBODY_TYPES = list(INPUT_FILES["escape"].keys())
+FUNC_FILES = {
+    "cell_entry": INPUT_FILES["cell entry"],
+    "receptor_binding": INPUT_FILES["receptor binding"],
+    "escape_resistant": INPUT_FILES["escape"]["human resistant sera escape"],
+    "escape_sensitive": INPUT_FILES["escape"]["human sensitive sera escape"],
+    "escape_sera": INPUT_FILES["escape"]["all sera escape"],
+}
 
+NAMES = list(EFFECT_COLS.keys())
 
-def make_targets():
-    targets = []
-    for s in STRUCTURES:
-        # entry and binding
-        targets.append(f"results/{s}/entry_filtered_chimerax_{s}.defattr")
-        targets.append(f"results/{s}/binding_filtered_chimerax_{s}.defattr")
-
-        # escape: preserve exactly the keys from config
-        for ab in ANTIBODY_TYPES:
-            targets.append(f"results/{s}/escape_{ab}_filtered_chimerax_{s}.defattr")
-    return targets
 
 def get_func_file(wildcards):
-    if wildcards.name in ["entry", "binding"]:
-        return INPUT_FILES[wildcards.name]
-    elif wildcards.name.startswith("escape_"):
-        ab = wildcards.name.split("_", 1)[1]   # preserve underscore: "86_11"
-        return INPUT_FILES["escape"][ab]
-    else:
-        raise ValueError(f"Unexpected name: {wildcards.name}")
+    return FUNC_FILES[wildcards.name]
+
 
 rule all:
     input:
-        make_targets()
-
+        expand(
+            "results/{structure}/{name}_chimerax_{structure}.defattr",
+            structure=STRUCTURES,
+            name=NAMES,
+        )
 
 
 rule chimerax_filter:
     input:
         data="chimerax_pipeline.py",
         func_file=get_func_file,
-        site_map=SITE_MAP
+        site_map=SITE_MAP,
     output:
-        filtered_file="chimerax_files/{name}_filtered_{structure}.csv",
-        mean_file="chimerax_files/{name}_filtered_chimerax_{structure}.csv"
+        mean_file=os.path.join(
+            OUTPUT_DIR,
+            "{name}_chimerax_{structure}.csv",
+        ),
     params:
-        std_col=lambda wildcards: EFFECT_TYPES[wildcards.name.split("_")[0]][0],
-        effect_col=lambda wildcards: EFFECT_TYPES[wildcards.name.split("_")[0]][1],
-        structure="{structure}",
-        name="{name}"
+        effect_col=lambda wc: EFFECT_COLS[wc.name],
+        structure=lambda wc: wc.structure,
     shell:
-        """
+        r"""
         python {input.data} \
             --func_file {input.func_file} \
             --site_map {input.site_map} \
             --structure {params.structure} \
-            --std_col {params.std_col} \
-            --effect_col {params.effect_col}
+            --effect_col "{params.effect_col}" \
+            --outdir {OUTPUT_DIR}
         """
 
 rule make_defattr:
     input:
-        infile="chimerax_files/{name}_filtered_chimerax_{structure}.csv"
+        infile=rules.chimerax_filter.output.mean_file
     output:
-        defattr="results/{structure}/{name}_filtered_chimerax_{structure}.defattr"
+        defattr="results/{structure}/{name}_chimerax_{structure}.defattr",
     params:
-        name=lambda wildcards: wildcards.name,
-        structure=lambda wildcards: wildcards.structure,
-        effect_col=lambda wildcards: EFFECT_TYPES[wildcards.name.split("_")[0]][1],
-        outdir=lambda wildcards: f"results/{wildcards.structure}"
+        name=lambda wc: wc.name,
+        structure=lambda wc: wc.structure,
+        effect_col=lambda wc: EFFECT_COLS[wc.name],
+        outdir=lambda wc: f"results/{wc.structure}",
     shell:
-        """
+        r"""
         python chimerax_pipeline.py \
             --aggregate \
             --infile {input.infile} \
             --name {params.name} \
-            --effect_col_agg {params.effect_col} \
-            --outdir {params.outdir}
+            --effect_col_agg "{params.effect_col}" \
+            --outdir {OUTPUT_DIR} \
+            --outdir_agg {params.outdir}
         """

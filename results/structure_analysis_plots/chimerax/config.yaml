@@ -5,19 +5,13 @@
 
 structures: ["6U7E", "6U7H", "8WDE"]
 input_files:
-  entry: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/func_effects/averages/cell_entry_func_effects.csv"
-  binding: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/receptor_affinity/averages/human_APN_binding_mut_effect.csv"
+  cell entry: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/summaries/cell_entry_and_binding.csv"
+  receptor binding: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/summaries/cell_entry_and_binding.csv"
   escape:
-    86-11: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/86_11-sera_mut_effect.csv"
-    88-10: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/88_10-sera_mut_effect.csv"
-    87-2: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/87_2-sera_mut_effect.csv"
-    88-4: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/88_4-sera_mut_effect.csv"
-    85-3: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/85_3-sera_mut_effect.csv"
-    85-7: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/85_7-sera_mut_effect.csv"
-    95-3: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/95_3-sera_mut_effect.csv"
-    93-4: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/averages/93_4-sera_mut_effect.csv"
-    resistant_mean: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/summary/resistant-sera.csv"
-    sesitive_mean: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/antibody_escape/summary/sesitive-sera.csv"
+    human resistant sera escape: /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/summaries/summary_of_all_phenotypes.csv
+    human sensitive sera escape: /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/summaries/summary_of_all_phenotypes.csv
+    all sera escape: /fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/summaries/summary_of_all_sera.csv
+    sera:
 site_map: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/data/site_numbering_map.csv"
 output_dir: "/fh/fast/bloom_j/computational_notebooks/sharari/2024/229E_spike_1984_DMS/results/structure_analysis_plots/chimerax"
 

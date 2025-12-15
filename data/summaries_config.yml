@@ -36,6 +36,38 @@ cell_entry_and_binding:
   <<: *cell_entry_default
   antibody_escape: {}
 
+summary_of_all_sera:
+  <<: *cell_entry_default
+  init_floor_escape_at_zero: false  # initially floor site escape to be >= 0?
+  init_site_escape_stat: sum  # initially show site escape as this statistic
+  lineplot_antibody_label_loc: right  # can be right or top
+  no_mean_lineplot: False  # do not show lineplot with mean of antibody escape
+  scale_lineplot_height: 1  # scale height of escape lineplots by this factor
+  selectable_per_antibody_heatmap: False  # does heatmap allow per-antibody selection?
+  antibody_escape:  # show effects on antibody escape, empty dict if no antibodies being shown
+    all sera: &Human_sera
+      stat: escape_median  # columin in CSV with value
+      # you can either specify a Vega color scheme 
+      # (https://vega.github.io/vega/docs/schemes/#redblue)
+      # as `color_scheme`, or specify `positive_color` and `negative_color`
+      # color_scheme: redblue
+      positive_color: "#6d2e46"  # light blue, positive heatmap color
+      negative_color: "#e2711d"  # orange, negative heatmap color
+      max_at_least: 2  # make heatmap max at least
+      min_at_least: -1  # make heatmap min at least this small
+      le_filters:  # only keep entries with indicated column is <= indicated value
+        escape_std: 2
+      antibody_list:  # antibody name followed by CSV with data for antibody
+        SD86_11: results/antibody_escape/averages/86_11-sera_mut_effect.csv
+        SD88_10: results/antibody_escape/averages/88_10-sera_mut_effect.csv
+        SD95_3: results/antibody_escape/averages/95_3-sera_mut_effect.csv
+        SD85_3: results/antibody_escape/averages/85_3-sera_mut_effect.csv
+        SD85_7: results/antibody_escape/averages/85_7-sera_mut_effect.csv
+        SD87_2: results/antibody_escape/averages/87_2-sera_mut_effect.csv
+        SD88_4: results/antibody_escape/averages/88_4-sera_mut_effect.csv
+        SD93_4: results/antibody_escape/averages/93_4-sera_mut_effect.csv
+      no_heatmap: False  # optional argument, do not show heatmap for this antibody set
+
 summary_of_all_phenotypes:
   <<: *cell_entry_default
   init_floor_escape_at_zero: false  # initially floor site escape to be >= 0?
@@ -51,8 +83,8 @@ summary_of_all_phenotypes:
       # (https://vega.github.io/vega/docs/schemes/#redblue)
       # as `color_scheme`, or specify `positive_color` and `negative_color`
       # color_scheme: redblue
-      positive_color: "#F2DD6E" # deep purple, positive heatmap color
-      negative_color: "#523A34" # light yellow, negative heatmap color
+      positive_color: "#3d405b" # deep purple, positive heatmap color
+      negative_color: "#e07a5f" # light yellow, negative heatmap color
       max_at_least: 1  # make heatmap max at least
       min_at_least: -1  # make heatmap min at least this small
       le_filters:  # only keep entries with indicated column is <= indicated value
@@ -70,8 +102,8 @@ summary_of_all_phenotypes:
       # (https://vega.github.io/vega/docs/schemes/#redblue)
       # as `color_scheme`, or specify `positive_color` and `negative_color`
       # color_scheme: redblue
-      positive_color: "#56B4E9"  # light blue, positive heatmap color
-      negative_color: "#E69F00"  # orange, negative heatmap color
+      positive_color: "#718355"  # light blue, positive heatmap color
+      negative_color: "#8b8c89"  # orange, negative heatmap color
       max_at_least: 2  # make heatmap max at least
       min_at_least: -1  # make heatmap min at least this small
       le_filters:  # only keep entries with indicated column is <= indicated value
