@@ -568,7 +568,7 @@ avg_escape_plot_kwargs_default: &avg_escape_plot_kwargs_default
   <<: *escape_plot_kwargs_default
   addtl_slider_stats:
     times_seen: 2
-    escape_std: 2.5
+    escape_std: 1.8
   addtl_slider_stats_as_max: [escape_std]
   avg_type: median
   per_model_tooltip: true
