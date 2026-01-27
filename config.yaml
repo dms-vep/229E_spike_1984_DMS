@@ -1,4 +1,7 @@
 # Config for analysis
+# Buite Vitepress homepage
+homepage: homepage/public
+build_vitepress_homepage: true
 
 # ----------------------------------------------------------------------------
 # Relative paths from this directory containing the configuration (and where
