@@ -20,7 +20,7 @@ cell_entry_on_s_6U7H:
     alphabet: RKHDEQNSTYWFAILMVGPC
     floor: False
     summary-stat: mean
-    tooltip-cols: {sequential_site: sequential site, region: region}
+    tooltip-cols: {sequential_site: site, region: region}
     heatmap-limits: "-5, 0, 2"
 
 receptor_binding_on_s_6U7H:
@@ -39,7 +39,7 @@ receptor_binding_on_s_6U7H:
     heatmap-limits: "-40, 0, 40"
     
 
-antibody_escape_on_s_6U7H:
+human_resistant_escape_on_s_6U7H:
   pdb_id: 6U7H
   name: spike 229E mutations effects on human resistnat sera escape
   pdb_type: biological_assembly
@@ -52,10 +52,22 @@ antibody_escape_on_s_6U7H:
     alphabet: RKHDEQNSTYWFAILMVGPC
     floor: False
     summary-stat: sum
-    tooltip-cols: {cell entry: cell entry, sequential_site: sequential site, region: region}
+    tooltip-cols: {cell entry: cell entry, sequential_site: site, region: region}
     filter-cols: {cell entry: cell entry}
     filter-limits: {cell entry: [-4, -2.5, 0]}
     heatmap-limits: "-2.5, 0, 2"
+
+human_sensitive_escape_on_s_6U7H:
+  pdb_id: 6U7H
+  name: spike 229E mutations effects on human resistnat sera escape
+  pdb_type: biological_assembly
+  data_csv: results/summaries/summary_of_all_phenotypes.csv
+  sitemap_csv: data/dms-viz-sitemap.csv
+  melt_condition_metric_cols: null
+  metric: human sensitive sera escape
+  opt_params: 
+    <<: *escape_opt_params
+    included-chains: A B C
 #---------------------------------------------------------------------------------------
 # 8WDE
 
@@ -86,7 +98,7 @@ receptor_binding_on_s_8WDE:
     summary-stat: sum
     heatmap-limits: "-40, 0, 40"
 
-antibody_escape_on_s_8WDE:
+human_resistant_escape_on_s_8WDE:
   pdb_id: 8WDE
   name: spike 229E mutations effects on human resistnat sera escape
   pdb_type: biological_assembly
@@ -94,6 +106,18 @@ antibody_escape_on_s_8WDE:
   sitemap_csv: data/dms-viz-sitemap.csv
   melt_condition_metric_cols: null
   metric: human resistant sera escape
+  opt_params: 
+    <<: *escape_opt_params
+    included-chains: A B C
+
+human_sensitive_escape_on_s_8WDE:
+  pdb_id: 6U7H
+  name: spike 229E mutations effects on human resistnat sera escape
+  pdb_type: biological_assembly
+  data_csv: results/summaries/summary_of_all_phenotypes.csv
+  sitemap_csv: data/dms-viz-sitemap.csv
+  melt_condition_metric_cols: null
+  metric: human sensitive sera escape
   opt_params: 
     <<: *escape_opt_params
     included-chains: A B C
