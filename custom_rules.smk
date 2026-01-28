@@ -100,3 +100,15 @@ docs["binding vs escape effect"] = {
     "Sites that affect RBD up/down conformation": rules.binding_vs_escape.output.RBD_up_down_chart_html,
     "Notebook comparing binding vs escape at key sites": rules.binding_vs_escape.output.nb,
 }
+
+docs["Row-wrapped heatmaps"] = {
+    "Cell entry": "non_pipeline_analysis/figures/cell_entry_heatmap_full_spike.html",
+    "Receptor binding": "non_pipeline_analysis/figures/receptor_binding_heatmap_full_spike.html",
+}
+
+docs["other paper figures"] = {
+    "Binding loops cell entry": "non_pipeline_analysis/figures/cell_entry_heatmap_all_loops.html",
+    "comparison of receptor binding": "non_pipeline_analysis/figures/coronavirus_comparison_interactive.html",
+    "receptor binding and escape correlation": "non_pipeline_analysis/figures/receptor_binding_escape_correlation_interactive.html",
+    "Natural diversity": "non_pipeline_analysis/figures/site_diversity_plot_interactive.html",
+}

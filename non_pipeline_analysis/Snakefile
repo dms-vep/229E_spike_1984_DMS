@@ -1,0 +1,111 @@
+"""
+Snakemake pipeline for generating interactive figures
+Run with: snakemake --cores 1
+or: snakemake --cores 1 --forceall (to regenerate all)
+"""
+
+# Define all target figures
+rule all:
+    input:
+        "figures/coronavirus_comparison_interactive.html",
+        "figures/receptor_binding_escape_correlation_interactive.html",
+        "figures/site_diversity_plot_interactive.html",
+        "figures/cell_entry_heatmap_all_loops.html",
+        "figures/cell_entry_heatmap_full_spike.html",
+        "figures/receptor_binding_heatmap_full_spike.html"
+
+rule receptor_binding_comparison:
+    input:
+        dms_229e = "../results/summaries/cell_entry_and_binding.csv",
+        dms_sars = "data/KP.3.1.1_summary.csv",
+        dms_xbb = "data/XBB.1.5_summary.csv",
+        script = "scripts/receptor_binding_comparison.py"
+    output:
+        "figures/coronavirus_comparison_interactive.html"
+    log:
+        "logs/figure1_receptor_binding_comparison.log"
+    shell:
+        """
+        python {input.script} > {log} 2>&1
+        """
+
+rule binding_vs_escape:
+    input:
+        dms_229e = "../results/summaries/summary_of_all_sera.csv",
+        script = "scripts/binding_vs_escape.py"
+    output:
+        "figures/receptor_binding_escape_correlation_interactive.html"
+    log:
+        "logs/figure2_binding_vs_escape.log"
+    shell:
+        """
+        python {input.script} > {log} 2>&1
+        """
+
+rule natural_diversity:
+    input:
+        msa = "data/protein_ungapped_no_outgroup.fasta",
+        script = "scripts/natural_diversity.py"
+    output:
+        "figures/site_diversity_plot_interactive.html"
+    log:
+        "logs/figure3_natural_diversity.log"
+    shell:
+        """
+        python {input.script} > {log} 2>&1
+        """
+
+rule binding_loops:
+    input:
+        dms_data = "../results/summaries/cell_entry_and_binding.csv",
+        script = "scripts/binding_loops_cell_entry.py"
+    output:
+        "figures/cell_entry_heatmap_all_loops.html"
+    log:
+        "logs/figure4_binding_loops.log"
+    shell:
+        """
+        python {input.script} > {log} 2>&1
+        """
+
+rule full_spike_heatmap:
+    input:
+        dms_data = "../results/summaries/cell_entry_and_binding.csv",
+        script = "scripts/full_spike_heatmap.py"
+    output:
+        "figures/cell_entry_heatmap_full_spike.html"
+    log:
+        "logs/figure5_full_spike_heatmap.log"
+    shell:
+        """
+        python {input.script} > {log} 2>&1
+        """
+
+rule receptor_binding_heatmap:
+    input:
+        dms_data = "../results/summaries/cell_entry_and_binding.csv",
+        script = "scripts/receptor_binding_heatmap.py"
+    output:
+        "figures/receptor_binding_heatmap_full_spike.html"
+    log:
+        "logs/figure6_receptor_binding_heatmap.log"
+    shell:
+        """
+        python {input.script} > {log} 2>&1
+        """
+
+rule clean:
+    shell:
+        """
+        rm -f figures/*.html
+        rm -f logs/*.log
+        """
+
+rule setup:
+    output:
+        directory("figures"),
+        directory("logs")
+    shell:
+        """
+        mkdir -p figures logs
+        """
