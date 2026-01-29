@@ -36,7 +36,9 @@ For a standalone version of this visualization, use [this link](https://dms-viz.
 Some mutations in the spike protein can favor the RBD “up” or “down” conformation. This shift can increase or decrease hAPN binding, respectively. These conformational changes also affect spike neutralization by human sera. The correlation between these two phenotypes is shown in the following interactive plot.
 
 - The **scatter points** represent individual sites in the spike protein total sera escap vs the mean hAPN binding per site, colored by the spike region.
-- **Hover over points** to see detailed information including site number, wildtype amino acid, exact receptor binding and sera escape values, and the spike region.  
+- **Hover over points** to see detailed information including site number, wildtype amino acid, exact receptor binding and sera escape values, and the spike region. 
+A standalon version of this plot is avilable [here](https://dms-vep.org/229E_spike_1984_DMS/htmls/receptor_binding_escape_correlation_interactive.html).
+
 
 <Figure caption="">
     <Altair :showShadow="true" :spec-url="'htmls/receptor_binding_escape_correlation_interactive.html'"></Altair>

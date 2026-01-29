@@ -16,7 +16,7 @@ Click on the expansion box in the upper right of the plot to enlarge for easier 
     <Altair :showShadow="true" :spec-url="'htmls/human_APN_binding_mut_effect.html'"></Altair>
 </Figure>
 
-For a wrapped version of the heatmap, click [here](htmls/receptor_binding_heatmap_full_spike.html).
+For a wrapped version of the heatmap, click [here](https://dms-vep.org/229E_spike_1984_DMS/htmls/receptor_binding_heatmap_full_spike.html).
 
 ## Numerical values
 The **pre-filtered** numerical data plotted on this page can be found [here](https://github.com/dms-vep/229E_spike_1984_DMS/blob/main/results/summaries/cell_entry_and_binding.csv). Alternatively, the **unfiltered** data are available [here](https://github.com/dms-vep/229E_spike_1984_DMS/blob/main/results/receptor_affinity/averages/human_APN_binding_mut_effect.csv). Note the unfiltered data have not been filtered for QC criteria like `times_seen`, so either make sure you understand the filters in the file or we recommend just using the pre-filtered data.

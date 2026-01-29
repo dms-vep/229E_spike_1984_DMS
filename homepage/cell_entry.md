@@ -16,7 +16,7 @@ Click on the expansion box in the upper right of the plot to enlarge for easier 
     <Altair :showShadow="true" :spec-url="'htmls/cell_entry_func_effects.html'"></Altair>
 </Figure>
 
-For a wrapped version of the heatmap, click [here](htmls/cell_entry_heatmap_full_spike.html).
+For a wrapped version of the heatmap, click [here](https://dms-vep.org/229E_spike_1984_DMS/htmls/cell_entry_heatmap_full_spike.html).
 
 ## Numerical values
 The **pre-filtered** numerical data plotted on this page can be found [here](https://github.com/dms-vep/229E_spike_1984_DMS/blob/main/results/summaries/cell_entry_and_binding.csv). Alternatively, the **unfiltered** data are available [here](https://github.com/dms-vep/229E_spike_1984_DMS/blob/main/results/func_effects/averages/cell_entry_func_effects.csv). Note the unfiltered data have not been filtered for QC criteria like `times_seen`, so either make sure you understand the filters in the file or we recommend just using the pre-filtered data.
