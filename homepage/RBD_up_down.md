@@ -14,6 +14,23 @@ A standalon version of this plot is avilable [here](https://dms-vep.org/229E_spi
     <Altair :showShadow="true" :spec-url="'htmls/summary_of_all_sera_overlaid.html'"></Altair>
 </Figure>
 
+## Interactive structures showing human sera escape
+
+Below are interactive visualizations showing deep mutational scanning data for human sera escape in the context of the full spike protein structure. These visualizations were generated using the dms-viz platform. Use Protein Options on the left to set Selection representation to the desired graphics. Results are shown for the spike trimer with all RBDs in the “down” conformation (PDB 6U7H) and for a spike structure with one RBD in the “up” conformation, including the hAPN receptor (PDB 8WDE).
+
+### PDB 6U7H
+
+For a standalone version of this visualization, use [this link](https://dms-viz.github.io/v0/?data=https%3A%2F%2Fraw.githubusercontent.com%2Fdms-vep%2F229E_spike_1984_DMS%2Frefs%2Fheads%2Fmain%2Fresults%2Fdms-viz%2Fhuman_escape_on_s_6U7H%2Fhuman_escape_on_s_6U7H.json&sa=true&fi=%257B%2522cell_entry%2522%253A-2.5%257D&sr=surface).
+
+<iframe src="https://dms-viz.github.io/v0/?data=https%3A%2F%2Fraw.githubusercontent.com%2Fdms-vep%2F229E_spike_1984_DMS%2Frefs%2Fheads%2Fmain%2Fresults%2Fdms-viz%2Fhuman_escape_on_s_6U7H%2Fhuman_escape_on_s_6U7H.json&sa=true&fi=%257B%2522cell_entry%2522%253A-2.5%257D&sr=surface" width="100%" height="500px"></iframe>
+
+
+### PDB 8WDE
+
+For a standalone version of this visualization, use [this link](https://dms-viz.github.io/v0/?data=https%3A%2F%2Fraw.githubusercontent.com%2Fdms-vep%2F229E_spike_1984_DMS%2Frefs%2Fheads%2Fmain%2Fresults%2Fdms-viz%2Fhuman_escape_on_s_8WDE%2Fhuman_escape_on_s_8WDE.json&sa=true&fi=%257B%2522cell_entry%2522%253A-2.5%257D&sr=surface).
+
+<iframe src="https://dms-viz.github.io/v0/?data=https%3A%2F%2Fraw.githubusercontent.com%2Fdms-vep%2F229E_spike_1984_DMS%2Frefs%2Fheads%2Fmain%2Fresults%2Fdms-viz%2Fhuman_escape_on_s_8WDE%2Fhuman_escape_on_s_8WDE.json&sa=true&fi=%257B%2522cell_entry%2522%253A-2.5%257D&sr=surface" width="100%" height="500px"></iframe>
+
 # Corrlation between hAPN binding and serum neutralization
 
 Some mutations in the spike protein can favor the RBD “up” or “down” conformation. This shift can increase or decrease hAPN binding, respectively. These conformational changes also affect spike neutralization by human sera. The correlation between these two phenotypes is shown in the following interactive plot.

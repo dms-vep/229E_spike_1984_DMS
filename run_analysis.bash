@@ -2,7 +2,7 @@
 #
 #SBATCH -c 16
 snakemake \
-    -j 16 \
+    -j 4 \
     -s dms-vep-pipeline-3/Snakefile \
     --software-deployment-method conda\
     --rerun-incomplete

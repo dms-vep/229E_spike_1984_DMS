@@ -20,3 +20,20 @@ For a wrapped version of the heatmap, click [here](htmls/cell_entry_heatmap_full
 
 ## Numerical values
 The **pre-filtered** numerical data plotted on this page can be found [here](https://github.com/dms-vep/229E_spike_1984_DMS/blob/main/results/summaries/cell_entry_and_binding.csv). Alternatively, the **unfiltered** data are available [here](https://github.com/dms-vep/229E_spike_1984_DMS/blob/main/results/func_effects/averages/cell_entry_func_effects.csv). Note the unfiltered data have not been filtered for QC criteria like `times_seen`, so either make sure you understand the filters in the file or we recommend just using the pre-filtered data.
+
+## Interactive structures showing cell entry effect
+
+Below are interactive visualizations showing deep mutational scanning data for cell entry in the context of the full spike protein structure. These visualizations were generated using the dms-viz platform. Use Protein Options on the left to set Selection representation to the desired graphics. Results are shown for the spike trimer with all RBDs in the “down” conformation (PDB 6U7H) and for a spike structure with one RBD in the “up” conformation, including the hAPN receptor (PDB 8WDE).
+
+### PDB 6U7H
+
+For a standalone version of this visualization, use [this link](https://dms-viz.github.io/v0/?data=https%3A%2F%2Fraw.githubusercontent.com%2Fdms-vep%2F229E_spike_1984_DMS%2Frefs%2Fheads%2Fmain%2Fresults%2Fdms-viz%2Fcell_entry_on_s_6U7H%2Fcell_entry_on_s_6U7H.json&sa=true&sr=surface).
+
+<iframe src="https://dms-viz.github.io/v0/?data=https%3A%2F%2Fraw.githubusercontent.com%2Fdms-vep%2F229E_spike_1984_DMS%2Frefs%2Fheads%2Fmain%2Fresults%2Fdms-viz%2Fcell_entry_on_s_6U7H%2Fcell_entry_on_s_6U7H.json&sa=true&sr=surface" width="100%" height="500px"></iframe>
+
+
+### PDB 8WDE
+
+For a standalone version of this visualization, use [this link](https://dms-viz.github.io/v0/?data=https%3A%2F%2Fraw.githubusercontent.com%2Fdms-vep%2F229E_spike_1984_DMS%2Frefs%2Fheads%2Fmain%2Fresults%2Fdms-viz%2Fcell_entry_on_s_8WDE%2Fcell_entry_on_s_8WDE.json&sa=true&sr=surface).
+
+<iframe src="https://dms-viz.github.io/v0/?data=https%3A%2F%2Fraw.githubusercontent.com%2Fdms-vep%2F229E_spike_1984_DMS%2Frefs%2Fheads%2Fmain%2Fresults%2Fdms-viz%2Fcell_entry_on_s_8WDE%2Fcell_entry_on_s_8WDE.json&sa=true&sr=surface" width="100%" height="500px"></iframe>
