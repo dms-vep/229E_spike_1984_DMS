@@ -4,7 +4,7 @@ aside: false
 
 # Evolution-resistant and evolution-sensitive sera escape 
 
-We measured how mutations in the HCoV-229E spike affect neutralization by Evolution-resistant compared to Evolution-sensitive sera. All sera samples were isolated in the 1980-1990's. 
+We measured how mutations in the HCoV-229E spike affect neutralization by evolution-resistant compared to evolution-sensitive sera. All sera samples were isolated in the 1980-1990's. 
 
 Below are several ways to explore these data:
 [[toc]]
@@ -27,7 +27,7 @@ The plots below show the effects of mutations on neutralization by sera from the
 The scatter plots show the effects of individual mutations, and the line plots show the total effects of mutations at each site.
 The zoom bar at top allows you to examine just certain regions of spike.
 
-### Eevolution-sensitive sera
+### Evolution-sensitive sera
 
 #### SD85_3 serum
 
@@ -84,27 +84,27 @@ The zoom bar at top allows you to examine just certain regions of spike.
 
 Below are interactive visualizations showing deep mutational scanning data for human sera escape in the context of the full spike protein structure. These visualizations were generated using the dms-viz platform. Use Protein Options on the left to set Selection representation to the desired graphics. Results are shown for the spike trimer with all RBDs in the “down” conformation (PDB 6U7H) and for a spike structure with one RBD in the “up” conformation, including the hAPN receptor (PDB 8WDE).
 
-### Total escape of human resistant sera using PDB 6U7H
+### Total escape of evolution-resistant sera using PDB 6U7H
 
 For a standalone version of this visualization, use [this link](https://dms-viz.github.io/v0/?data=https%3A%2F%2Fraw.githubusercontent.com%2Fdms-vep%2F229E_spike_1984_DMS%2Frefs%2Fheads%2Fmain%2Fresults%2Fdms-viz%2Fhuman_resistant_escape_on_s_6U7H%2Fhuman_resistant_escape_on_s_6U7H.json&sa=true&fi=%257B%2522cell_entry%2522%253A-2.5%257D&sr=surface).
 
 <iframe src="https://dms-viz.github.io/v0/?data=https%3A%2F%2Fraw.githubusercontent.com%2Fdms-vep%2F229E_spike_1984_DMS%2Frefs%2Fheads%2Fmain%2Fresults%2Fdms-viz%2Fhuman_resistant_escape_on_s_6U7H%2Fhuman_resistant_escape_on_s_6U7H.json&sa=true&fi=%257B%2522cell_entry%2522%253A-2.5%257D&sr=surface" width="100%" height="500px"></iframe>
 
 
-### Total escape of human resistant sera using PDB 8WDE
+### Total escape of evolution-resistant sera using PDB 8WDE
 
 For a standalone version of this visualization, use [this link](https://dms-viz.github.io/v0/?data=https%3A%2F%2Fraw.githubusercontent.com%2Fdms-vep%2F229E_spike_1984_DMS%2Frefs%2Fheads%2Fmain%2Fresults%2Fdms-viz%2Fhuman_resistant_escape_on_s_8WDE%2Fhuman_resistant_escape_on_s_8WDE.json&sa=true&fi=%257B%2522cell_entry%2522%253A-2.5%257D&sr=surface).
 
 <iframe src="https://dms-viz.github.io/v0/?data=https%3A%2F%2Fraw.githubusercontent.com%2Fdms-vep%2F229E_spike_1984_DMS%2Frefs%2Fheads%2Fmain%2Fresults%2Fdms-viz%2Fhuman_resistant_escape_on_s_8WDE%2Fhuman_resistant_escape_on_s_8WDE.json&sa=true&fi=%257B%2522cell_entry%2522%253A-2.5%257D&sr=surface" width="100%" height="500px"></iframe>
 
-### Total escape of human sensitive sera using PDB 6U7H
+### Total escape of evolution-sensitive sera using PDB 6U7H
 
 For a standalone version of this visualization, use [this link](https://dms-viz.github.io/v0/?data=https%3A%2F%2Fraw.githubusercontent.com%2Fdms-vep%2F229E_spike_1984_DMS%2Frefs%2Fheads%2Fmain%2Fresults%2Fdms-viz%2Fhuman_sensitive_escape_on_s_6U7H%2Fhuman_sensitive_escape_on_s_6U7H.json&sa=true&fi=%257B%2522cell_entry%2522%253A-2.5%257D&sr=surface).
 
 <iframe src="https://dms-viz.github.io/v0/?data=https%3A%2F%2Fraw.githubusercontent.com%2Fdms-vep%2F229E_spike_1984_DMS%2Frefs%2Fheads%2Fmain%2Fresults%2Fdms-viz%2Fhuman_sensitive_escape_on_s_6U7H%2Fhuman_sensitive_escape_on_s_6U7H.json&sa=true&fi=%257B%2522cell_entry%2522%253A-2.5%257D&sr=surface" width="100%" height="500px"></iframe>
 
 
-### Total escape of human sensitive sera  using PDB 8WDE
+### Total escape of evolution-sensitive sera  using PDB 8WDE
 
 For a standalone version of this visualization, use [this link](https://dms-viz.github.io/v0/?data=https%3A%2F%2Fraw.githubusercontent.com%2Fdms-vep%2F229E_spike_1984_DMS%2Frefs%2Fheads%2Fmain%2Fresults%2Fdms-viz%2Fhuman_sensitive_escape_on_s_8WDE%2Fhuman_sensitive_escape_on_s_8WDE.json&sa=true&fi=%257B%2522cell_entry%2522%253A-2.5%257D&sr=surface).
 
