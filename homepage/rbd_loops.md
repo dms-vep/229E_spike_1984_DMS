@@ -3,7 +3,7 @@ aside: false
 ---
 
 # Comparison of natural HCoV-229E diversity to cell entry effects in the RBD binding loops.
-We compared the natural amino acid variation of HCoV-229E spike to the cell entry effect of the RBD binding loops. For further exploration:
+We compared the natural amino-acid variation of HCoV-229E spike to the measured effects of mutations on cell entry in the RBD binding loops. For further exploration:
 [[toc]]
 
 ## Site-wise Amino Acid Diversity of Natural Sequences of HCoV-229E

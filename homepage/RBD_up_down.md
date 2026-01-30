@@ -2,13 +2,14 @@
 aside: false
 ---
 
-# Human Sera neutralization profile 
+# Human sera neutralization
 
-We measured how mutations in the HCoV-229E spike affect neutralization by human sera. The line plots summarize the total effects of mutations at each measured site averged for eight sera samples, while the heatmaps below show the average effects of individual mutations.
+We measured how mutations in the HCoV-229E spike affect neutralization by human sera. The line plots summarize the total effects of mutations at each measured site averaged for eight sera samples, while the heatmaps below show the average effects of individual mutations.
 
 Note that the two different shades of gray in the heatmaps have differing meanings: light gray means a mutation was missing (not measured) in the library, whereas dark gray means a mutation was measured but was so deleterious for cell entry it is not possible to reliably estimate its effect on other phenotypes (the threshold for how deleterious a mutation must be for cell entry to be shown in dark gray is controlled by the cell entry slider at the bottom of the plot). This plot also includes the cell entry and hAPN binding heatmaps for easy comparison of the mutations’ effects on different phenotypes.
 See [here](https://github.com/dms-vep/229E_spike_1984_DMS/blob/main/results/summaries/summary_of_all_sera.csv) for a CSV with the total escape for each site.
-A standalon version of this plot is avilable [here](https://dms-vep.org/229E_spike_1984_DMS/htmls/summary_of_all_sera_overlaid.html).
+Negative escape values mean the mutation increases neutralization, while positive values mean it decreases neutralization.
+A standalone version of this plot is avilable [here](https://dms-vep.org/229E_spike_1984_DMS/htmls/summary_of_all_sera_overlaid.html).
 
 <Figure caption="">
     <Altair :showShadow="true" :spec-url="'htmls/summary_of_all_sera_overlaid.html'"></Altair>

@@ -5,10 +5,10 @@ aside: false
 # Effects of HCoV-229E spike mutations on human APN binding.
 
 ## Interactive plot
-The plots below show how mutations affect the binding of the human APN receptor. These plots are interactive, and allow you to zoom and mouseover sites and mutations.
+The plots below show how mutations affect the binding of the spike to its human APN receptor. These plots are interactive, and allow you to zoom and mouseover sites and mutations.
 - The **zoom bar** at the top of the plot shows different regions of spike, and can be used to zoom in on specific sites.
-- The **line plot** summarizes the effects of mutations on cell entry at each site (more negative values indicate impaired cell entry). The cell entry at a site is quantified using the site summary statistic specified by the interactive option at the bottom of the plot (e.g., mean effect of mutations at a site).
-- The **heatmap** shows how each individual mutation affects cell entry. The `X`'s indicate the amino-acid identity in the 1984 strain. Light gray tiles indicate mutations that were missing (not measured) in the library.
+- The **line plot** summarizes the effects of mutations on receptor binding at each site (more negative values indicate impaired binding). The binding at a site is quantified using the site summary statistic specified by the interactive option at the bottom of the plot (e.g., mean effect of mutations at a site).
+- The **heatmap** shows how each individual mutation affects binding. The `X`'s indicate the amino-acid identity in the 1984 strain. Light gray tiles indicate mutations that were missing (not measured) in the library. Dark gray indicates mutations that are too deleterious for cell entry to measure their effect on receptor binding.
 
 Click on the expansion box in the upper right of the plot to enlarge for easier viewing, or click [here](https://dms-vep.org/229E_spike_1984_DMS/htmls/human_APN_binding_mut_effect.html) to open the plot in a stand-alone window.
 

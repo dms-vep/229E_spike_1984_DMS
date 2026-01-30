@@ -3,9 +3,9 @@ import { defineConfig } from "vitepress";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: "en-US",
-  title: "Pseudovirus deep mutational scanning of HCoV-229E 1984 spike protein",
+  title: "Pseudovirus deep mutational scanning of HCoV-229E spike protein (1984 strain)",
   description:
-    "A collection of data, figures, and analysis for exploring the HCoV-229E evolution by mapping spike constraints.",
+    "Interactive figures froom pseudovirus deep mutational scanning of the HCoV-229E spike",
   base: "/229E_spike_1984_DMS/",
   appearance: false,
   themeConfig: {
@@ -16,7 +16,7 @@ export default defineConfig({
     ],
     socialLinks: [{ icon: "github", link: "https://github.com/dms-vep/229E_spike_1984_DMS" }],
     footer: {
-      message: "Built by Sheri Harari and Jesse Bloom",
+      message: 'Study by Sheri Harari in the <a href="https://jbloomlab.org/">Bloom Lab</a>',
     },
   },
 });
