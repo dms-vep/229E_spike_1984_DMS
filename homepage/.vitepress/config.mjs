@@ -5,7 +5,7 @@ export default defineConfig({
   lang: "en-US",
   title: "Pseudovirus deep mutational scanning of HCoV-229E spike protein (1984 strain)",
   description:
-    "Interactive figures froom pseudovirus deep mutational scanning of the HCoV-229E spike",
+    "Interactive figures from pseudovirus deep mutational scanning of the HCoV-229E spike",
   base: "/229E_spike_1984_DMS/",
   appearance: false,
   themeConfig: {
