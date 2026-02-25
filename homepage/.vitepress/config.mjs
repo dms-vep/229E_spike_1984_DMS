@@ -16,7 +16,7 @@ export default defineConfig({
     ],
     socialLinks: [{ icon: "github", link: "https://github.com/dms-vep/229E_spike_1984_DMS" }],
     footer: {
-      message: 'Study by Sheri Harari in the <a href="https://jbloomlab.org/">Bloom Lab</a>',
+      message: 'See <a href="https://www.biorxiv.org/content/10.64898/2026.02.22.707297v1">Harari et al (2026)</a> for study details.',
     },
   },
 });

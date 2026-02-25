@@ -25,7 +25,7 @@ github_blob_url: https://github.com/dms-vep/229E_spike_1984_DMS/blob/main/
 # Some descriptions and metadata about the analysis.
 description: Deep mutational scanning using HCoV-229E Spike strain 1984
 year: 2026
-authors: Sheri Harari in the [Bloom lab](https://jbloomlab.org/)
+authors: "[Harari at al](https://www.biorxiv.org/content/10.64898/2026.02.22.707297v1)"
 
 # ----------------------------------------------------------------------------
 # Site numbering, mutation classification, and neut standards

@@ -25,7 +25,7 @@ features:
 
 The links in the gray boxes above take you to pages with details about the experimental measurements of the effects of mutations on different spike phenotypes, as well as interactive visualizations and links to the numerical measurements for each mutation.
 
-For details about the study, see [Harari et al (2026)]().
+For details about the study, see [Harari et al (2026)](https://www.biorxiv.org/content/10.64898/2026.02.22.707297v1).
 
 All experiments were performed at biosafety-level-2 using [pseudoviruses](https://pubmed.ncbi.nlm.nih.gov/36868218/), which are only able to undergo a single round of cell entry and so are therefore not replicative viruses capable of causing disease.
 

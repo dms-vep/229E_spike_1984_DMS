@@ -1,4 +1,6 @@
 # Pseudovirus deep mutational scanning of HCoV-229E Spike protein 
+Study by Sheri Harari in the [Bloom lab](https://jbloomlab.org).
+See [Harari et al](https://www.biorxiv.org/content/10.64898/2026.02.22.707297v1) for the paper describing this study.
 
 ## Organization of this repo
 
