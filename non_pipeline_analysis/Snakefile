@@ -18,7 +18,7 @@ rule receptor_binding_comparison:
     input:
         dms_229e = "../results/summaries/cell_entry_and_binding.csv",
         dms_sars = "data/KP.3.1.1_summary.csv",
-        dms_xbb = "data/XBB.1.5_summary.csv",
+        dms_xbb = "data/XBB.1.5_RBD_summary.csv",
         script = "scripts/receptor_binding_comparison.py"
     output:
         "figures/coronavirus_comparison_interactive.html"

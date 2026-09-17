@@ -9,50 +9,63 @@ import polyclonal.pdb_utils
 # Configuration
 DMS_229E_CSV = "../results/summaries/cell_entry_and_binding.csv"
 DMS_SARS_CSV = "data/KP.3.1.1_summary.csv"
-DMS_XBB_CSV = "data/XBB.1.5_summary.csv"
-MIN_CELL_ENTRY = -2.5
+DMS_XBB_CSV = "data/XBB.1.5_RBD_summary.csv"
 OUTPUT_FILE = 'figures/coronavirus_comparison_interactive.html'
+
+# Per-dataset cell entry filters (region == 'RBD' is applied separately, using
+# the region column already present in each source file)
+cell_entry_filters = {
+    '229E_APN': {
+        'column': 'cell entry',
+        'min_value': -2.5
+    },
+    'KP.3.1.1_ACE2': {
+        'column': 'cell entry',
+        'min_value': -2.0
+    },
+    'XBB.1.5_ACE2': {
+        'column': 'cell entry',
+        'min_value': -1.5
+    }
+}
 
 # Color scheme
 VIOLIN_COLOR = '#b0c4b1'
 JITTER_COLOR = '#445716'
 
-def load_dms_data(csv_path, cell_entry_col="spike mediated entry", 
-                  receptor_col="receptor binding"):
+
+def load_dms_data(csv_path, virus_name, min_cell_entry,
+                   cell_entry_col=None, receptor_col=None):
+    """Load one virus's DMS summary, standardize columns, and filter to
+    clean, RBD-only, cell-entry-passing mutations.
+
+    cell_entry_col / receptor_col: pass the source column name if it needs
+    renaming to 'cell entry' / 'receptor binding'; leave as None if the file
+    already uses those names.
+    """
+    df = pd.read_csv(csv_path)
+
+    rename_map = {}
+    if cell_entry_col is not None:
+        rename_map[cell_entry_col] = "cell entry"
+    if receptor_col is not None:
+        rename_map[receptor_col] = "receptor binding"
+    if rename_map:
+        df = df.rename(columns=rename_map)
+
     return (
-        pd.read_csv(csv_path)
-        .rename(columns={cell_entry_col: "cell entry", receptor_col: "receptor binding"})
+        df
         .dropna(subset=["cell entry", "receptor binding"])
-        .query("`cell entry` >= @MIN_CELL_ENTRY")
         .query("mutant not in ['*', '-']")
+        .query("`cell entry` >= @min_cell_entry")
+        .query("region == 'RBD'")
         .assign(
             mutation=lambda x: x["wildtype"] + x["site"].astype(str) + x["mutant"],
-            n_mutations_at_site=lambda x: x.groupby("site")["mutant"].transform("count"),
+            virus=virus_name,
         )
         .reset_index(drop=True)
     )
 
-def assign_region_229e(seq_site):
-    """Assign spike region for 229E"""
-    if 38 <= seq_site <= 267:
-        return "NTD"
-    elif 293 <= seq_site <= 435:
-        return "RBD"
-    elif 575 < seq_site <= 1173:
-        return "S2"
-    else:
-        return "other"
-
-def assign_region_sars(seq_site):
-    """Assign spike region for SARS-CoV-2"""
-    if 13 <= seq_site <= 301:
-        return "NTD"
-    elif 327 <= seq_site <= 523:
-        return "RBD"
-    elif 681 < seq_site <= 1300:
-        return "S2"
-    else:
-        return "other"
 
 def get_distance_df(pdb_id, chain1, chain2, receptor_name):
     with tempfile.NamedTemporaryFile() as f:
@@ -63,7 +76,7 @@ def get_distance_df(pdb_id, chain1, chain2, receptor_name):
         coords_df = polyclonal.pdb_utils.extract_atom_locations(
             f.name, [chain1, chain2], target_atom="CA"
         )
-    
+
     return (
         coords_df
         .query(f"chain == '{chain1}'")
@@ -79,7 +92,7 @@ def get_distance_df(pdb_id, chain1, chain2, receptor_name):
         )
         .assign(
             distance=lambda x: x.apply(
-                lambda r: math.sqrt(sum((r[c] - r[f"{receptor_name}_{c}"])**2 
+                lambda r: math.sqrt(sum((r[c] - r[f"{receptor_name}_{c}"])**2
                                        for c in ["x", "y", "z"])),
                 axis=1,
             )
@@ -88,25 +101,29 @@ def get_distance_df(pdb_id, chain1, chain2, receptor_name):
         .aggregate({"distance": "min"})
     )
 
-def process_dms_data(df, virus_name, dist_df, region_func, distance_cutoff=15):
+
+def process_dms_data(df, dist_df, distance_cutoff=15):
+    """Merge in receptor-distance data and classify receptor-proximal vs
+    receptor-distal. Assumes df is already filtered to RBD-only rows."""
     df = df.copy()
     df = df[df["site"].astype(str).str.match(r"^\d+$")]
     df["site"] = df["site"].astype(int)
-    
+
     df = df.merge(dist_df, on='site', how="left")
     df = df.fillna({'distance': 100})
-    
-    df['region'] = df['site'].apply(region_func)
+
     df['receptor_distance'] = np.where(
-        df['region'] == 'RBD',
-        np.where(df['distance'] <= distance_cutoff, 'receptor_proximal', 'receptor_distal'),
-        'non_rbd'
+        df['distance'] <= distance_cutoff,
+        'receptor-proximal',
+        'receptor-distal',
     )
-    df['virus'] = virus_name
-    
+
     return df
 
+
 def create_interactive_violin_plot(df, viruses_to_plot, output_file):
+    receptor_distance_order = ['receptor-distal', 'receptor-proximal']
+
     df_plot = df[df['virus'].isin(viruses_to_plot)].copy()
     df_plot['virus'] = pd.Categorical(df_plot['virus'], categories=viruses_to_plot, ordered=True)
     df_plot = df_plot.sort_values('virus')
@@ -121,41 +138,43 @@ def create_interactive_violin_plot(df, viruses_to_plot, output_file):
         .reset_index(name='n')
     )
     sample_sizes['label'] = 'n=' + sample_sizes['n'].astype(str)
-    
+
     y_max_per_virus = df_plot.groupby('virus', observed=True)['receptor binding'].max().reset_index()
     y_max_per_virus.columns = ['virus', 'y_max']
     sample_sizes = sample_sizes.merge(y_max_per_virus, on='virus')
     sample_sizes['y_position'] = sample_sizes['y_max'] * 1.05
-    
+
     colors = {
         'box': VIOLIN_COLOR,
         'jitter': JITTER_COLOR
     }
-    
+
     charts = []
-    
+
     for virus in viruses_to_plot:
         virus_data = df_plot[df_plot['virus'] == virus].copy()
         virus_sample_sizes = sample_sizes[sample_sizes['virus'] == virus].copy()
-        
+
         boxplot = alt.Chart(virus_data).mark_boxplot(
             size=50,
             color=colors['box'],
             opacity=0.7
         ).encode(
-            x=alt.X('receptor_distance:N', 
+            x=alt.X('receptor_distance:N',
                    title='Receptor Distance',
+                   sort=receptor_distance_order,
                    axis=alt.Axis(labelAngle=0)),
-            y=alt.Y('receptor binding:Q', 
+            y=alt.Y('receptor binding:Q',
                    title='Receptor Binding')
         )
-        
+
         jitter = alt.Chart(virus_data).mark_circle(
             size=15,
             opacity=0.3,
             color=colors['jitter']
         ).encode(
             x=alt.X('receptor_distance:N',
+                   sort=receptor_distance_order,
                    axis=alt.Axis(labelAngle=0)),
             y=alt.Y('receptor binding:Q'),
             xOffset='jitter:Q',
@@ -167,7 +186,7 @@ def create_interactive_violin_plot(df, viruses_to_plot, output_file):
                 alt.Tooltip('receptor_distance:N', title='Category')
             ]
         )
-        
+
         annotations = alt.Chart(virus_sample_sizes).mark_text(
             align='center',
             baseline='bottom',
@@ -175,19 +194,19 @@ def create_interactive_violin_plot(df, viruses_to_plot, output_file):
             fontWeight='bold',
             dy=-5
         ).encode(
-            x=alt.X('receptor_distance:N'),
+            x=alt.X('receptor_distance:N', sort=receptor_distance_order),
             y=alt.Y('y_position:Q'),
             text='label:N'
         )
-        
+
         chart = (boxplot + jitter + annotations).properties(
             width=350,
             height=400,
             title=virus
         )
-        
+
         charts.append(chart)
-    
+
     final_chart = alt.hconcat(*charts).configure_view(
         strokeWidth=0
     ).configure_axis(
@@ -205,47 +224,62 @@ def create_interactive_violin_plot(df, viruses_to_plot, output_file):
             anchor='middle'
         )
     )
-    
+
     # Save to HTML
     final_chart.save(output_file)
     return final_chart
 
+
 def main():
-    dms_229e = load_dms_data(DMS_229E_CSV, "spike mediated entry", "all sera escape")
-    dms_229e = dms_229e.rename(columns={"all sera escape": "sera escape"})
-    dms_sars = load_dms_data(DMS_SARS_CSV, "spike mediated entry", "ACE2 binding")
-    dms_xbb = load_dms_data(DMS_XBB_CSV, "spike mediated entry", "ACE2 binding")
-    
+    dms_229e = load_dms_data(
+        DMS_229E_CSV, "229E_APN",
+        min_cell_entry=cell_entry_filters['229E_APN']['min_value'],
+        # cell_entry_col=None, receptor_col=None,  # set these if 229E's file needs renaming
+    )
+
+    dms_sars = load_dms_data(
+        DMS_SARS_CSV, "KP.3.1.1_ACE2",
+        min_cell_entry=cell_entry_filters['KP.3.1.1_ACE2']['min_value'],
+        cell_entry_col="spike mediated entry", receptor_col="ACE2 binding",
+    )
+
+    dms_xbb = load_dms_data(
+        DMS_XBB_CSV, "XBB.1.5_ACE2",
+        min_cell_entry=cell_entry_filters['XBB.1.5_ACE2']['min_value'],
+        cell_entry_col="spike mediated entry", receptor_col="ACE2 binding",
+    )
+    dms_xbb["receptor binding"] = dms_xbb["receptor binding"].clip(lower=-4)
+
     dist_df_229e = get_distance_df("8WDE", "A", "D", "APN")
     dist_df_sars = get_distance_df("6M0J", "E", "A", "ACE2")
 
-    dms_229e_processed = process_dms_data(dms_229e, "229E_APN", dist_df_229e, assign_region_229e)
-    dms_sars_processed = process_dms_data(dms_sars, "KP.3.1.1_ACE2", dist_df_sars, assign_region_sars)
-    dms_xbb_processed = process_dms_data(dms_xbb, "XBB.1.5_ACE2", dist_df_sars, assign_region_sars)
-    
-    df = pd.concat([
+    dms_229e_processed = process_dms_data(dms_229e, dist_df_229e)
+    dms_sars_processed = process_dms_data(dms_sars, dist_df_sars)
+    dms_xbb_processed = process_dms_data(dms_xbb, dist_df_sars)
+
+    df_rbd = pd.concat([
         dms_229e_processed,
         dms_sars_processed,
         dms_xbb_processed,
     ], ignore_index=True)
-    
-    df_no_s2 = df[df['region'] != 'S2'].copy()
-    
+
+    print("Mutations per virus after filtering:")
+    print(df_rbd['virus'].value_counts())
+
     print("Creating interactive visualization...")
-    
 
     viruses_to_plot = [
-        '229E_APN', 
-        'KP.3.1.1_ACE2', 
+        '229E_APN',
+        'KP.3.1.1_ACE2',
         'XBB.1.5_ACE2'
     ]
-    
 
-    fig = create_interactive_violin_plot(df_no_s2, viruses_to_plot, OUTPUT_FILE)
-    
+    fig = create_interactive_violin_plot(df_rbd, viruses_to_plot, OUTPUT_FILE)
+
     print("Done!")
-    
-    return df_no_s2, fig
+
+    return df_rbd, fig
+
 
 if __name__ == "__main__":
     df, fig = main()
